@@ -55,7 +55,11 @@ public class HttpDownHandler implements HttpRequestHandler {
     public void handle(HttpRequest request, HttpResponse response, HttpContext context)
             throws HttpException, IOException {
 
-
+        Header[] head1 = request.getAllHeaders();
+        Log.i(TAG, "ahnder" + head1);
+        for (Header ha:head1){
+            Log.i(TAG, "requestheaders: ======>" + ha.getName() + " =======" + ha.getValue());
+        }
         request.getParams();
         String Uri = request.getRequestLine().getUri();
         String method  = request.getRequestLine().getMethod();
@@ -94,8 +98,12 @@ public class HttpDownHandler implements HttpRequestHandler {
             @Override
             public void writeTo(OutputStream outstream) throws IOException {
                 if (file.isFile()) {    //下载目标是文件的情况下
+                    Log.i(TAG, "=========准备下载文件");
+
                     write(file, outstream);
                 } else {    //下载目标是文件夹的情况下
+                    Log.i(TAG, "=========准备下载文件夹以压缩包形式");
+
                     zip(file, outstream, encoding);
                 }
             }
@@ -106,6 +114,11 @@ public class HttpDownHandler implements HttpRequestHandler {
         response.addHeader("Content-Disposition", "attachment;filename=" + encodeFilename(file));
         response.setHeader("Content-Transfer-Encoding", "binary");
         // 在某平板自带浏览器上下载失败，比较下能成功下载的响应头，这里少了Content-Length。但设了，反而下不了了。
+        Header[] head2 = response.getAllHeaders();
+        Log.i(TAG, "ahnder" + head2);
+        for (Header ha:head1){
+            Log.i(TAG, "responseheaders: ======>" + ha.getName() + " =======" + ha.getValue());
+        }
         response.setEntity(entity);
     }
 
@@ -143,6 +156,8 @@ public class HttpDownHandler implements HttpRequestHandler {
         } finally {
             outstream.close();
             fis.close();
+            Log.i(TAG, "=======文件下载完成");
+//            downloadSuccess.complete("下载完成");  //socket那边注册监听之后再实现此方法不然会崩掉
         }
     }
 
