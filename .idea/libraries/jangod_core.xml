@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="jangod-core">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/libs/jangod-core.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

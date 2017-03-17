@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "F:\\AndroidWebServ-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\prefer_widget_checkbox.xml",
+        "source": "F:\\AndroidWebServ-master\\app\\src\\main\\res\\layout\\prefer_widget_checkbox.xml"
+    },
+    {
+        "merged": "F:\\AndroidWebServ-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\main.xml",
+        "source": "F:\\AndroidWebServ-master\\app\\src\\main\\res\\layout\\main.xml"
+    },
+    {
+        "merged": "F:\\AndroidWebServ-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\filebrowser.xml",
+        "source": "F:\\AndroidWebServ-master\\app\\src\\main\\res\\layout\\filebrowser.xml"
+    },
+    {
+        "merged": "F:\\AndroidWebServ-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\prefer_widget_edit.xml",
+        "source": "F:\\AndroidWebServ-master\\app\\src\\main\\res\\layout\\prefer_widget_edit.xml"
+    },
+    {
+        "merged": "F:\\AndroidWebServ-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\prefer_widget_wait.xml",
+        "source": "F:\\AndroidWebServ-master\\app\\src\\main\\res\\layout\\prefer_widget_wait.xml"
+    },
+    {
+        "merged": "F:\\AndroidWebServ-master\\app\\build\\intermediates\\res\\merged\\debug\\layout\\capture.xml",
+        "source": "F:\\AndroidWebServ-master\\app\\src\\main\\res\\layout\\capture.xml"
+    }
+]

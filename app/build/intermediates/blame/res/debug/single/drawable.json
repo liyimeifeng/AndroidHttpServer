@@ -1,0 +1,34 @@
+[
+    {
+        "merged": "F:\\AndroidWebServ-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_toggle_on_normal.xml",
+        "source": "F:\\AndroidWebServ-master\\app\\src\\main\\res\\drawable\\btn_toggle_on_normal.xml"
+    },
+    {
+        "merged": "F:\\AndroidWebServ-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_toggle.xml",
+        "source": "F:\\AndroidWebServ-master\\app\\src\\main\\res\\drawable\\btn_toggle.xml"
+    },
+    {
+        "merged": "F:\\AndroidWebServ-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\folder_parent.png",
+        "source": "F:\\AndroidWebServ-master\\app\\src\\main\\res\\drawable\\folder_parent.png"
+    },
+    {
+        "merged": "F:\\AndroidWebServ-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_toggle_off_normal.xml",
+        "source": "F:\\AndroidWebServ-master\\app\\src\\main\\res\\drawable\\btn_toggle_off_normal.xml"
+    },
+    {
+        "merged": "F:\\AndroidWebServ-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\file_def.png",
+        "source": "F:\\AndroidWebServ-master\\app\\src\\main\\res\\drawable\\file_def.png"
+    },
+    {
+        "merged": "F:\\AndroidWebServ-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_toggle_on_pressed.xml",
+        "source": "F:\\AndroidWebServ-master\\app\\src\\main\\res\\drawable\\btn_toggle_on_pressed.xml"
+    },
+    {
+        "merged": "F:\\AndroidWebServ-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_toggle_off_pressed.xml",
+        "source": "F:\\AndroidWebServ-master\\app\\src\\main\\res\\drawable\\btn_toggle_off_pressed.xml"
+    },
+    {
+        "merged": "F:\\AndroidWebServ-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\folder_def.png",
+        "source": "F:\\AndroidWebServ-master\\app\\src\\main\\res\\drawable\\folder_def.png"
+    }
+]

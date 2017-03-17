@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "F:\\AndroidWebServ-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_launcher.png",
+        "source": "F:\\AndroidWebServ-master\\app\\src\\main\\res\\drawable-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "F:\\AndroidWebServ-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_noti_running.png",
+        "source": "F:\\AndroidWebServ-master\\app\\src\\main\\res\\drawable-hdpi\\ic_noti_running.png"
+    }
+]

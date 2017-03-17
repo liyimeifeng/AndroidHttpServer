@@ -1,0 +1,28 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 14
+    buildToolsVersion "23.0.2"
+
+    defaultConfig {
+        applicationId "org.join.web.serv"
+        minSdkVersion 14
+        targetSdkVersion 19
+
+        testFunctionalTest true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-project.txt'
+        }
+    }
+}
+
+dependencies {
+    compile files('libs/ant-zip.jar')
+    compile files('libs/commons-io-2.4.jar')
+    compile files('libs/jangod-core.jar')
+    compile files('libs/zxing-core.jar')
+}
