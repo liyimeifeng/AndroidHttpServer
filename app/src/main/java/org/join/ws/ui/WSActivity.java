@@ -271,8 +271,6 @@ public class WSActivity extends WebServActivity implements OnClickListener, OnWs
      *  服务端完成启动后进行回调通知Socket
      */
 
-//        String msg;
-
     public WSActivity() {
 
     }
@@ -292,7 +290,7 @@ public class WSActivity extends WebServActivity implements OnClickListener, OnWs
     }
 
     private void success(){
-        startServer.complete("开启服务器");
+        startServer.complete("HTTP服务器已打开");
     }
 
     private void doStartClick() {

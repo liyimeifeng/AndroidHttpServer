@@ -5,36 +5,26 @@ package socket.info; /**
 /**
  * 启动http服务端
  *
- * parmas address ：IP地址
- * parmas flag ：标位置，0表示上屏，1表示下屏
- * parmas open ：是否要打开http服务端，true表示打开，false表示不打开
+ * @param flag ：标位置，0表示上屏，1表示下屏
+ * @param start ：是否要打开http服务端，true表示打开，false表示不打开
  */
 
 public class StartInfo {
-    String address;
+
     String flag;
-    boolean open;
+    boolean start;
 
     public StartInfo() {
 
     }
 
-    public StartInfo(boolean open) {
-        this.open = open;
+    public StartInfo(boolean start) {
+        this.start = start;
     }
 
-    public StartInfo(String address, String flag, boolean open) {
-        this.address = address;
+    public StartInfo( String flag, boolean start) {
         this.flag = flag;
-        this.open = open;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
+        this.start = start;
     }
 
     public String getFlag() {
@@ -46,11 +36,11 @@ public class StartInfo {
     }
 
     public boolean isOpen() {
-        return open;
+        return start;
     }
 
     public void setOpen(boolean open) {
-        this.open = open;
+        this.start = open;
     }
 }
 

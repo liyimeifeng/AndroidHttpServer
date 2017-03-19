@@ -4,8 +4,8 @@ package socket.info; /**
 
 /**
  *  下载资源参数
- *  params name: 文件名
- *  params download:文件下载路径
+ *  @param name: 文件名
+ *  @param download:文件下载路径
  *
  */
 
