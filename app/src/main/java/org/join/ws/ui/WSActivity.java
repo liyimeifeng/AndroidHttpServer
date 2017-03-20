@@ -24,6 +24,7 @@ import android.net.Uri;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.text.ClipboardManager;
@@ -35,9 +36,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
@@ -46,7 +49,15 @@ import com.google.zxing.BarcodeFormat;
 import com.google.zxing.WriterException;
 import com.google.zxing.client.result.ParsedResultType;
 
+import java.io.File;
+import java.net.URL;
+
+import socket.callback.StartClient;
 import socket.callback.StartServer;
+import socket.downloadUtil.FileDownloader;
+import socket.downloadUtil.FileUtil;
+import socket.downloadUtil.ReqCallBack;
+import socket.downloadUtil.RequestManager;
 
 
 /**
@@ -62,7 +73,8 @@ public class WSActivity extends WebServActivity implements OnClickListener, OnWs
 
     private CommonUtil mCommonUtil;
 
-    private ToggleButton toggleBtn;
+    private ToggleButton serverButton;
+    private Button clientButton;
     private TextView urlText;
     private ImageView qrCodeView;
     private LinearLayout contentLayout;
@@ -90,7 +102,7 @@ public class WSActivity extends WebServActivity implements OnClickListener, OnWs
             switch (msg.what) {
             case W_START: {
                 setUrlText(ipAddr);
-                RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) toggleBtn
+                RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) serverButton
                         .getLayoutParams();
                 params.addRule(RelativeLayout.CENTER_IN_PARENT, 0);
                 params.addRule(RelativeLayout.ALIGN_PARENT_TOP, RelativeLayout.TRUE);
@@ -101,7 +113,7 @@ public class WSActivity extends WebServActivity implements OnClickListener, OnWs
             case W_STOP: {
                 urlText.setText("");
                 qrCodeView.setImageResource(0);
-                RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) toggleBtn
+                RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) serverButton
                         .getLayoutParams();
                 params.addRule(RelativeLayout.CENTER_IN_PARENT, RelativeLayout.TRUE);
                 params.addRule(RelativeLayout.ALIGN_PARENT_TOP, 0);
@@ -127,7 +139,7 @@ public class WSActivity extends WebServActivity implements OnClickListener, OnWs
                 doStopClick();
                 return;
             }
-            toggleBtn.setEnabled(true);
+            serverButton.setEnabled(true);
         }
 
     };
@@ -149,8 +161,10 @@ public class WSActivity extends WebServActivity implements OnClickListener, OnWs
     }
 
     private void initViews(Bundle state) {
-        toggleBtn = (ToggleButton) findViewById(R.id.toggleBtn);
-        toggleBtn.setOnClickListener(this);
+        serverButton = (ToggleButton) findViewById(R.id.toggleBtn);
+        serverButton.setOnClickListener(this);
+        clientButton = (Button)findViewById(R.id.startClenit);
+        clientButton.setOnClickListener(this);
         urlText = (TextView) findViewById(R.id.urlText);
         qrCodeView = (ImageView) findViewById(R.id.qrCodeView);
         contentLayout = (LinearLayout) findViewById(R.id.contentLayout);
@@ -160,12 +174,13 @@ public class WSActivity extends WebServActivity implements OnClickListener, OnWs
             needResumeServer = state.getBoolean("needResumeServer", false);
             boolean isRunning = state.getBoolean("isRunning", false);
             if (isRunning) {
-                toggleBtn.setChecked(true);
+                serverButton.setChecked(true);
                 setUrlText(ipAddr);
                 doBindService();
             }
         }
     }
+
 
     private void setUrlText(String ipAddr) {
         String url = "http://" + ipAddr + ":" + Config.PORT + "/";
@@ -246,51 +261,97 @@ public class WSActivity extends WebServActivity implements OnClickListener, OnWs
 
     @Override
     public void onClick(View v) {
-        boolean isChecked = toggleBtn.isChecked();
-        if (isChecked) {
-            Log.i(TAG, "isWedSerAvailable======>" + isWebServAvailable());
-            if (!isWebServAvailable()) {
-                toggleBtn.setChecked(false);
-                urlText.setText("");
-                showDialog(DLG_SERV_USELESS);
-                return;
-            }
-            doStartClick();
-        } else {
-            doStopClick();
+        switch(v.getId()){
+            case R.id.toggleBtn:
+                Log.i(TAG, "========点击了启动服务端按钮");
+                boolean isChecked = serverButton.isChecked();
+                if (isChecked) {
+                    Log.i(TAG, "isWedSerAvailable======>" + isWebServAvailable());
+                    if (!isWebServAvailable()) {
+                        serverButton.setChecked(false);
+                        urlText.setText("");
+                        showDialog(DLG_SERV_USELESS);
+                        return;
+                    }
+                    doStartClick();
+                } else {
+                    doStopClick();
+                }
+                needResumeServer = false;
+            case R.id.startClenit:
+                Log.i(TAG, "=========打开客户端");
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+//                      final int result = new FileDownloader().downloadFile("http://10.10.30.153:8080/dodownload?fname=client.rar");
+//                        runOnUiThread(new Runnable() {
+//                            @Override
+//                            public void run() {
+//                                if (result == 0){
+//                                    Toast.makeText(WSActivity.this,"文件下载成功,请到" + FileUtil.SDPATH + FileDownloader.dirName + "文件目录下查看",Toast.LENGTH_LONG).show();
+//                                }else if (result == 1){
+//                                    Toast.makeText(WSActivity.this,"文件已经存在，请删除后再下载",Toast.LENGTH_LONG).show();
+//                                }else {
+//                                    Toast.makeText(WSActivity.this,"文件下载失败，请查看服务器是否打开、网络是否异常",Toast.LENGTH_LONG).show();
+//                                }
+//                            }
+//                        });
+
+
+
+                        final RequestManager manager = new RequestManager(WSActivity.this);
+                        String url = "http://10.10.30.153:8080/dodownload?fname=client.rar";
+                        manager.downLoadFile(url, new ReqCallBack<Object>() {
+                            @Override
+                            public void onReqFailed(String errorMsg) {
+                                Log.i("================", "onReqFailed:====下载失败 " + errorMsg);
+                            }
+
+                            @Override
+                            public void onReqSuccess(Object result) {
+                                Toast.makeText(WSActivity.this,"文件下载成功,请到" + RequestManager.destFileDir + "文件目录下查看",Toast.LENGTH_LONG).show();
+                            }
+                        });
+
+
+
+                    }
+                }).start();
+
         }
-        needResumeServer = false;
+
     }
 
     private void getMsgFromSocketServer(){
-        Log.i(TAG, "接收到socket服务端请求开启之后打开http服务端");
-        onClick(toggleBtn);
+        Log.i(TAG, "接收到socket服务端请求开启之后打开http服务端或者http客户端");
+        onClick(serverButton);
+        onClick(clientButton);
     }
 
     /**
-     *  服务端完成启动后进行回调通知Socket
+     *  服务端完成启动后进行回调通知SocketServer
+     *  客户端完成启动后进行回调通知SocketServer
      */
 
     public WSActivity() {
 
     }
 
-//        public WSActivity(String msg) {
-//            this.msg = msg;
-//        }
-//
-//        public String getMsg() {
-//            return msg;
-//        }
-
     private StartServer startServer;
+    private StartClient startClient;
+
 
     public void setStartServerCallback(StartServer Callback) {
-        startServer = Callback;
+        this.startServer = Callback;
+    }
+
+    public void setStartClientCallback(StartClient callback){
+        this.startClient = callback;
     }
 
     private void success(){
-        startServer.complete("HTTP服务器已打开");
+        startServer.onComplete("HTTP服务器已打开");
+        startClient.onComplete("Http下载客户端已打开");
     }
 
     private void doStartClick() {
@@ -300,19 +361,19 @@ public class WSActivity extends WebServActivity implements OnClickListener, OnWs
          final String formatedIpAddress = String.format("%d.%d.%d.%d", (ipAddress & 0xff), (ipAddress >> 8 & 0xff), (ipAddress >> 16 & 0xff), (ipAddress >> 24 & 0xff));
         ipAddr = formatedIpAddress;
         if (ipAddr == null) {
-            toggleBtn.setChecked(false);
+            serverButton.setChecked(false);
             urlText.setText("");
             toast(getString(R.string.info_net_off));
             return;
         }
-        toggleBtn.setChecked(true);
-        toggleBtn.setEnabled(false);
+        serverButton.setChecked(true);
+        serverButton.setEnabled(false);
         doBindService();
     }
 
     private void doStopClick() {
-        toggleBtn.setChecked(false);
-        toggleBtn.setEnabled(false);
+        serverButton.setChecked(false);
+        serverButton.setEnabled(false);
         doUnbindService();
         ipAddr = null;
     }

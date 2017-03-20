@@ -1,6 +1,7 @@
 package socket.downloadUtil;
 
 import android.os.Environment;
+import android.util.Log;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -10,12 +11,14 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import static android.content.ContentValues.TAG;
+
 /**
  * Created by Administrator on 2017/3/19.
  */
 public class FileUtil {
 
-    private static String SDPATH;
+    public static String SDPATH;
     public FileUtil(){
         //得到SD卡的目录，如：“sdcard/”
         SDPATH= Environment.getExternalStorageDirectory().getAbsolutePath()+ File.separator;
@@ -49,6 +52,7 @@ public class FileUtil {
      */
     public boolean isExist(String dirName,String fileName){
         File file=new File(SDPATH+dirName+fileName);
+
         return file.exists();
     }
 
@@ -68,6 +72,8 @@ public class FileUtil {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        Log.i(TAG, "getIS============: " + is);
+
         return is;
     }
     /**
@@ -86,6 +92,7 @@ public class FileUtil {
             os=new FileOutputStream(file);
             byte buffer[]=new byte[1024*4];
             int temp=0;
+            Log.i(TAG, "is============: " + is);
             while((temp=is.read(buffer))!=-1){
                 os.write(buffer, 0, temp);
             }

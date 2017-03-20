@@ -7,5 +7,5 @@ package socket.callback;
  */
 
 public interface DownloadSuccessful {
-    void complete(String msg);
+    void onComplete(String msg);
 }

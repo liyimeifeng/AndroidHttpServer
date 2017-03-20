@@ -7,5 +7,5 @@ package socket.callback;
  */
 
 public interface StartClient {
-    void complete(String msg);
+    void onComplete(String msg);
 }

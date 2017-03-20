@@ -26,10 +26,17 @@ public class SocketTest {
         WSActivity wsActivity = new WSActivity();
         wsActivity.setStartServerCallback(new StartServer() {
             @Override
-            public void complete(String info) {
+            public void onComplete(String info) {
 //                Log.i(TAG, "complete: ====》" + wsActivity.getMsg());
                 Log.i(TAG, "complete: ====》" +info);
 
+            }
+        });
+
+        wsActivity.setStartClientCallback(new StartClient() {
+            @Override
+            public void onComplete(String msg) {
+                Log.i(TAG, "onComplete:=====> " + msg);
             }
         });
 
@@ -38,7 +45,7 @@ public class SocketTest {
 
         downHandler.setDownloadSuccessCallback(new DownloadSuccessful() {
             @Override
-            public void complete(String msg) {
+            public void onComplete(String msg) {
 
             }
         });
@@ -55,7 +62,7 @@ public class SocketTest {
         HttpFBHandler httpFBHandler = new HttpFBHandler();
         httpFBHandler.setStartClientCallback(new StartClient() {
             @Override
-            public void complete(String msg) {
+            public void onComplete(String msg) {
 
             }
         });

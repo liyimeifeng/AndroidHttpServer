@@ -3,26 +3,35 @@
 
     <item
         is-multidex="false"
-        jar="F:\AndroidWebServ-master\app\libs\ant-zip.jar"
-        jumboMode="false"
+        jar="F:\AndroidWebServ-master\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
         optimize="true"
         revision="23.0.2"
-        sha1="7aa409f28eb2228146f00b47b0acc7d13e847f07">
-        <dex dex="F:\AndroidWebServ-master\app\build\intermediates\pre-dexed\debug\ant-zip_7e226b4fd44b130182a9f903f69a538f04e689bc.jar" />
+        sha1="a9a3ab03b476d6b90893ccd86bce0bc1f30767eb">
+        <dex dex="F:\AndroidWebServ-master\app\build\intermediates\pre-dexed\debug\instant-run-bootstrap_4d90739394b3b146e7294076331c581d7065c2dd.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.6.0\98476622f10715998eacf9240d6b479f12c66143\okio-1.6.0.jar"
-        jumboMode="false"
+        jar="F:\AndroidWebServ-master\app\libs\jangod-core.jar"
+        jumboMode="true"
         optimize="true"
         revision="23.0.2"
-        sha1="98476622f10715998eacf9240d6b479f12c66143">
-        <dex dex="F:\AndroidWebServ-master\app\build\intermediates\pre-dexed\debug\okio-1.6.0_c410569bd3ae660f2a7eceb3af69efc833b46b70.jar" />
+        sha1="3740a76d44f518e4f68b481d018ba4d609fd0d5d">
+        <dex dex="F:\AndroidWebServ-master\app\build\intermediates\pre-dexed\debug\jangod-core_ea03f18d3b7e51bdc1426c91e9ac40f15a0fa162.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="F:\AndroidWebServ-master\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="1ab13af414a1e1e36cd3a40fec1a287cb83ceddd">
+        <dex dex="F:\AndroidWebServ-master\app\build\intermediates\pre-dexed\debug\instant-run_62c7525443a8c33fdeabed9b823fd9d3aef7fb99.jar" />
     </item>
     <item
         is-multidex="false"
         jar="F:\AndroidWebServ-master\app\libs\commons-io-2.4.jar"
-        jumboMode="false"
+        jumboMode="true"
         optimize="true"
         revision="23.0.2"
         sha1="b1b6ea3b7e4aa4f492509a4952029cd8e48019ad">
@@ -30,17 +39,8 @@
     </item>
     <item
         is-multidex="false"
-        jar="F:\AndroidWebServ-master\app\libs\zxing-core.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.2"
-        sha1="a23150992d2f20d3b719b1fb66ac40b3bd19cbc2">
-        <dex dex="F:\AndroidWebServ-master\app\build\intermediates\pre-dexed\debug\zxing-core_fe6767be52bb76c70790ad013127d98f48a6a310.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.2.0\f7873a2ebde246a45c2a8d6f3247108b4c88a879\okhttp-3.2.0.jar"
-        jumboMode="false"
+        jumboMode="true"
         optimize="true"
         revision="23.0.2"
         sha1="f7873a2ebde246a45c2a8d6f3247108b4c88a879">
@@ -48,12 +48,30 @@
     </item>
     <item
         is-multidex="false"
-        jar="F:\AndroidWebServ-master\app\libs\jangod-core.jar"
-        jumboMode="false"
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.6.0\98476622f10715998eacf9240d6b479f12c66143\okio-1.6.0.jar"
+        jumboMode="true"
         optimize="true"
         revision="23.0.2"
-        sha1="3740a76d44f518e4f68b481d018ba4d609fd0d5d">
-        <dex dex="F:\AndroidWebServ-master\app\build\intermediates\pre-dexed\debug\jangod-core_ea03f18d3b7e51bdc1426c91e9ac40f15a0fa162.jar" />
+        sha1="98476622f10715998eacf9240d6b479f12c66143">
+        <dex dex="F:\AndroidWebServ-master\app\build\intermediates\pre-dexed\debug\okio-1.6.0_c410569bd3ae660f2a7eceb3af69efc833b46b70.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="F:\AndroidWebServ-master\app\libs\ant-zip.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="7aa409f28eb2228146f00b47b0acc7d13e847f07">
+        <dex dex="F:\AndroidWebServ-master\app\build\intermediates\pre-dexed\debug\ant-zip_7e226b4fd44b130182a9f903f69a538f04e689bc.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="F:\AndroidWebServ-master\app\libs\zxing-core.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="a23150992d2f20d3b719b1fb66ac40b3bd19cbc2">
+        <dex dex="F:\AndroidWebServ-master\app\build\intermediates\pre-dexed\debug\zxing-core_fe6767be52bb76c70790ad013127d98f48a6a310.jar" />
     </item>
 
 </items>
