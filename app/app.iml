@@ -110,7 +110,6 @@
     <orderEntry type="jdk" jdkName="Android API 14 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="jangod-core" level="project" />
-    <orderEntry type="library" exported="" name="zxing-core" level="project" />
     <orderEntry type="library" exported="" name="ant-zip" level="project" />
     <orderEntry type="library" exported="" name="commons-io-2.5" level="project" />
     <orderEntry type="library" exported="" name="okio-1.6.0" level="project" />

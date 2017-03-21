@@ -47,12 +47,12 @@
         android:name="android.hardware.camera.flash"
         android:required="false" />
 
-    <instrumentation
+    <Instrumentation
         android:name="android.test.InstrumentationTestRunner"
         android:functionalTest="true"
         android:label="WS JUnit Test"
         android:targetPackage="org.join.web.serv" >
-    </instrumentation>
+    </Instrumentation>
 
     <!-- TODO make this not required again after android.hardware.camera.any is available -->
     <application
@@ -82,20 +82,6 @@
                 <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.PREFERENCE" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name="org.join.zxing.CaptureActivity"
-            android:clearTaskOnLaunch="true"
-            android:configChanges="orientation|keyboardHidden"
-            android:screenOrientation="portrait"
-            android:stateNotNeeded="true"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
-            android:windowSoftInputMode="stateAlwaysHidden" >
-            <intent-filter>
-                <action android:name="com.google.zxing.client.android.SCAN" />
-
-                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 

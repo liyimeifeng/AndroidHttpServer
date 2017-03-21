@@ -2,76 +2,67 @@
 <items version="2" >
 
     <item
-        is-multidex="true"
+        is-multidex="false"
+        jar="F:\AndroidWebServ-master\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="a5565cb0ab194ccd39806722616d6f3e3635e04f">
+        <dex dex="F:\AndroidWebServ-master\app\build\intermediates\pre-dexed\debug\instant-run-bootstrap_4d90739394b3b146e7294076331c581d7065c2dd.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="F:\AndroidWebServ-master\app\libs\jangod-core.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.2"
         sha1="3740a76d44f518e4f68b481d018ba4d609fd0d5d">
-        <dex dex="F:\AndroidWebServ-master\app\build\intermediates\transforms\dex\debug\folders\1000\2\jangod-core_ea03f18d3b7e51bdc1426c91e9ac40f15a0fa162\classes.dex" />
+        <dex dex="F:\AndroidWebServ-master\app\build\intermediates\pre-dexed\debug\jangod-core_ea03f18d3b7e51bdc1426c91e9ac40f15a0fa162.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="F:\AndroidWebServ-master\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        is-multidex="false"
+        jar="F:\AndroidWebServ-master\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.2"
-        sha1="f86526a891ae9075c6cbad2a228653b6b01e5b34">
-        <dex dex="F:\AndroidWebServ-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_4d90739394b3b146e7294076331c581d7065c2dd\classes.dex" />
+        sha1="66783e664e4d3ee88191f382d001ba0a10c12a96">
+        <dex dex="F:\AndroidWebServ-master\app\build\intermediates\pre-dexed\debug\instant-run_62c7525443a8c33fdeabed9b823fd9d3aef7fb99.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="F:\AndroidWebServ-master\app\libs\commons-io-2.5.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.2"
-        sha1="b24f6678d458e65f08113a079e3724581eca1184">
-        <dex dex="F:\AndroidWebServ-master\app\build\intermediates\transforms\dex\debug\folders\1000\2\commons-io-2.5_6047c0e23b29b6a8fd5760dd91459815cbbb6b19\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
+        is-multidex="false"
         jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.2.0\f7873a2ebde246a45c2a8d6f3247108b4c88a879\okhttp-3.2.0.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.2"
         sha1="f7873a2ebde246a45c2a8d6f3247108b4c88a879">
-        <dex dex="F:\AndroidWebServ-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\okhttp-3.2.0_e97c4d684058659f4c78fd063d89ce0d8b400297\classes.dex" />
+        <dex dex="F:\AndroidWebServ-master\app\build\intermediates\pre-dexed\debug\okhttp-3.2.0_e97c4d684058659f4c78fd063d89ce0d8b400297.jar" />
     </item>
     <item
-        is-multidex="true"
+        is-multidex="false"
         jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.6.0\98476622f10715998eacf9240d6b479f12c66143\okio-1.6.0.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.2"
         sha1="98476622f10715998eacf9240d6b479f12c66143">
-        <dex dex="F:\AndroidWebServ-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\okio-1.6.0_c410569bd3ae660f2a7eceb3af69efc833b46b70\classes.dex" />
+        <dex dex="F:\AndroidWebServ-master\app\build\intermediates\pre-dexed\debug\okio-1.6.0_c410569bd3ae660f2a7eceb3af69efc833b46b70.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="F:\AndroidWebServ-master\app\libs\zxing-core.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.2"
-        sha1="a23150992d2f20d3b719b1fb66ac40b3bd19cbc2">
-        <dex dex="F:\AndroidWebServ-master\app\build\intermediates\transforms\dex\debug\folders\1000\2\zxing-core_fe6767be52bb76c70790ad013127d98f48a6a310\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
+        is-multidex="false"
         jar="F:\AndroidWebServ-master\app\libs\ant-zip.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.2"
         sha1="7aa409f28eb2228146f00b47b0acc7d13e847f07">
-        <dex dex="F:\AndroidWebServ-master\app\build\intermediates\transforms\dex\debug\folders\1000\2\ant-zip_7e226b4fd44b130182a9f903f69a538f04e689bc\classes.dex" />
+        <dex dex="F:\AndroidWebServ-master\app\build\intermediates\pre-dexed\debug\ant-zip_7e226b4fd44b130182a9f903f69a538f04e689bc.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="F:\AndroidWebServ-master\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        is-multidex="false"
+        jar="F:\AndroidWebServ-master\app\libs\commons-io-2.5.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.2"
-        sha1="2961db5efada47795d1f0a8be783c82fac15eaff">
-        <dex dex="F:\AndroidWebServ-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_62c7525443a8c33fdeabed9b823fd9d3aef7fb99\classes.dex" />
+        sha1="b24f6678d458e65f08113a079e3724581eca1184">
+        <dex dex="F:\AndroidWebServ-master\app\build\intermediates\pre-dexed\debug\commons-io-2.5_6047c0e23b29b6a8fd5760dd91459815cbbb6b19.jar" />
     </item>
 
 </items>

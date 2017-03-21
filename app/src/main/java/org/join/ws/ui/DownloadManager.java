@@ -19,7 +19,7 @@ public class DownloadManager {
     private Context context;
     private DownloadSuccessful downloadSuccessful;
 
-    public void DownloadManager(Context context){
+    public DownloadManager(Context context){
         this.context = context;
     }
 
