@@ -45,9 +45,9 @@ public final class R {
         public static final int quit=0x7f070005;
         public static final int restart_preview=0x7f070006;
         public static final int return_scan_result=0x7f070007;
-        public static final int startClenit=0x7f07000d;
+        public static final int startClient=0x7f07000d;
+        public static final int startServer=0x7f07000c;
         public static final int status_view=0x7f07000a;
-        public static final int toggleBtn=0x7f07000c;
         public static final int urlText=0x7f07000f;
         public static final int viewfinder_view=0x7f070009;
     }

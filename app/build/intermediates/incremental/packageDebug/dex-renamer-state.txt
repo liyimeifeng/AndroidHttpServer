@@ -1,4 +1,7 @@
-#Tue Mar 21 10:50:14 CST 2017
-base.0=F\:\\AndroidWebServ-master\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main
+#Tue Mar 21 16:39:08 CST 2017
+base.0=F\:\\AndroidWebServ-master\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_4d90739394b3b146e7294076331c581d7065c2dd
+renamed.1=classes2.dex
 renamed.0=classes.dex
-file.0=F\:\\AndroidWebServ-master\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main\\classes.dex
+file.1=F\:\\AndroidWebServ-master\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_62c7525443a8c33fdeabed9b823fd9d3aef7fb99\\classes.dex
+base.1=F\:\\AndroidWebServ-master\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_62c7525443a8c33fdeabed9b823fd9d3aef7fb99
+file.0=F\:\\AndroidWebServ-master\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_4d90739394b3b146e7294076331c581d7065c2dd\\classes.dex

@@ -34,6 +34,8 @@ public class WSService extends Service implements OnNetworkListener, OnStorageLi
         super.onCreate();
         NetworkReceiver.register(this, this);
         StorageReceiver.register(this, this);
+        Log.i(TAG, "onCreate: ========》后台服务启动");
+//        new ServerUtil().startHttpServer();
 
         CommonUtil mCommonUtil = CommonUtil.getSingleton();
         isNetworkAvailable = mCommonUtil.isNetworkAvailable();

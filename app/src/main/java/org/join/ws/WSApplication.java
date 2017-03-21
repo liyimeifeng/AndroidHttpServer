@@ -15,6 +15,9 @@ import org.join.ws.util.CopyUtil;
 
 import android.app.Application;
 import android.content.Intent;
+import android.util.Log;
+
+import static android.content.ContentValues.TAG;
 
 /**
  * @brief 应用全局
@@ -31,18 +34,23 @@ public class WSApplication extends Application {
         super.onCreate();
 
         self = this;
-        wsServIntent = new Intent(WSService.ACTION);
-
-        initAppDir();
-        initJangod();
-        initAppFilter();
-
-        if (!Config.DEV_MODE) {
-            /* 全局异常崩溃处理 */
-            new CrashHandler(this);
-        }
-
-        PreferActivity.restoreAll();
+//        Log.i(TAG, "onCreate: ===========》启动后台服务");
+//        wsServIntent = new Intent(WSService.ACTION);
+//
+//        initAppDir();
+//        initJangod();
+//        initAppFilter();
+//
+//        if (!Config.DEV_MODE) {
+//            /* 全局异常崩溃处理 */
+//            new CrashHandler(this);
+//        }
+//
+//        PreferActivity.restoreAll();
+//        serverUtil = new ServerUtil();
+////        WSApplication.getInstance().startWsService();
+//            serverUtil.initObject();
+//        serverUtil.startHttpServer();
     }
 
     public static WSApplication getInstance() {
