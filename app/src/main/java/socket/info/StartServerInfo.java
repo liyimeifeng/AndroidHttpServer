@@ -9,20 +9,20 @@ package socket.info; /**
  * @param start ：是否要打开http服务端，true表示打开，false表示不打开
  */
 
-public class StartInfo {
+public class StartServerInfo {
 
     String flag;
     boolean start;
 
-    public StartInfo() {
+    public StartServerInfo() {
 
     }
 
-    public StartInfo(boolean start) {
+    public StartServerInfo(boolean start) {
         this.start = start;
     }
 
-    public StartInfo( String flag, boolean start) {
+    public StartServerInfo(String flag, boolean start) {
         this.flag = flag;
         this.start = start;
     }

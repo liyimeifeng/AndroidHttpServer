@@ -30,15 +30,6 @@
     </item>
     <item
         is-multidex="false"
-        jar="F:\AndroidWebServ-master\app\libs\commons-io-2.4.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.2"
-        sha1="b1b6ea3b7e4aa4f492509a4952029cd8e48019ad">
-        <dex dex="F:\AndroidWebServ-master\app\build\intermediates\pre-dexed\debug\commons-io-2.4_cd0bcf0c678321372acb2b0fd47684a4fc1395fd.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.2.0\f7873a2ebde246a45c2a8d6f3247108b4c88a879\okhttp-3.2.0.jar"
         jumboMode="true"
         optimize="true"
@@ -63,6 +54,15 @@
         revision="23.0.2"
         sha1="7aa409f28eb2228146f00b47b0acc7d13e847f07">
         <dex dex="F:\AndroidWebServ-master\app\build\intermediates\pre-dexed\debug\ant-zip_7e226b4fd44b130182a9f903f69a538f04e689bc.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="F:\AndroidWebServ-master\app\libs\commons-io-2.5.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="b24f6678d458e65f08113a079e3724581eca1184">
+        <dex dex="F:\AndroidWebServ-master\app\build\intermediates\pre-dexed\debug\commons-io-2.5_6047c0e23b29b6a8fd5760dd91459815cbbb6b19.jar" />
     </item>
     <item
         is-multidex="false"

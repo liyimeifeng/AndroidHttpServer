@@ -2,13 +2,12 @@ package socket.callback;
 
 import android.util.Log;
 
-import org.apache.http.protocol.HttpRequestHandler;
 import org.join.ws.serv.req.HttpDownHandler;
 import org.join.ws.serv.req.HttpFBHandler;
 import org.join.ws.ui.WSActivity;
 
 
-import socket.info.StartInfo;
+import socket.info.StartServerInfo;
 
 import static android.content.ContentValues.TAG;
 
@@ -20,7 +19,7 @@ public class SocketTest {
 
 
     public void test(){
-        StartInfo info = new StartInfo();
+        StartServerInfo info = new StartServerInfo();
        info.setOpen(true);
 //
         WSActivity wsActivity = new WSActivity();

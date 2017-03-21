@@ -52,6 +52,7 @@ import com.google.zxing.client.result.ParsedResultType;
 import java.io.File;
 import java.net.URL;
 
+import socket.callback.DownloadSuccessful;
 import socket.callback.StartClient;
 import socket.callback.StartServer;
 import socket.downloadUtil.FileDownloader;
@@ -339,6 +340,7 @@ public class WSActivity extends WebServActivity implements OnClickListener, OnWs
 
     private StartServer startServer;
     private StartClient startClient;
+    private DownloadSuccessful downloadSuccessful;
 
 
     public void setStartServerCallback(StartServer Callback) {
@@ -349,9 +351,14 @@ public class WSActivity extends WebServActivity implements OnClickListener, OnWs
         this.startClient = callback;
     }
 
+    public void setDownloadSuccessfulCallback(DownloadSuccessful callback){
+        this.downloadSuccessful = callback;
+    }
+
     private void success(){
         startServer.onComplete("HTTP服务器已打开");
         startClient.onComplete("Http下载客户端已打开");
+        downloadSuccessful.onComplete("下载完成");
     }
 
     private void doStartClick() {
@@ -537,23 +544,5 @@ public class WSActivity extends WebServActivity implements OnClickListener, OnWs
         return dimension;
     }
 
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        String title = "请注意";
-        String message = "服务器正在运行，确定要关闭它吗？";
-        if (keyCode == KeyEvent.KEYCODE_BACK){
-            new AlertDialog.Builder(this)
-                    .setTitle(title)
-                    .setMessage(message)
-                    .setPositiveButton(getResources().getString(android.R.string.ok), new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            finish();
-                        }
-                    })
-                    .setNegativeButton(getResources().getString(android.R.string.cancel),null)
-                    .show();
-        }
-        return false;
-    }
+
 }

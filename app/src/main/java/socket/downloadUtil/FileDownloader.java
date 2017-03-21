@@ -1,11 +1,6 @@
 package socket.downloadUtil;
 
-import android.os.Handler;
-import android.os.Message;
 import android.util.Log;
-import android.widget.Toast;
-
-import org.join.ws.ui.WSActivity;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -68,8 +63,7 @@ public class FileDownloader {
                 Log.i(TAG, "mmmmm======>" + m);
             }
         }else{
-            Log.i(TAG, "文件不包含点号");
-            if (fileUtil.isExist(dirName,fileName)){
+            if (fileUtil.isExist(dirName,fileName)){        //在文件包含类型，如txt,rar等的情况下
                 fileName = fileName + "(" + m + ")";
                 m = m ++ ;
             }

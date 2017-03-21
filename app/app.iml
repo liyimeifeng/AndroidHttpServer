@@ -112,8 +112,8 @@
     <orderEntry type="library" exported="" name="jangod-core" level="project" />
     <orderEntry type="library" exported="" name="zxing-core" level="project" />
     <orderEntry type="library" exported="" name="ant-zip" level="project" />
+    <orderEntry type="library" exported="" name="commons-io-2.5" level="project" />
     <orderEntry type="library" exported="" name="okio-1.6.0" level="project" />
-    <orderEntry type="library" exported="" name="commons-io-2.4" level="project" />
     <orderEntry type="library" exported="" name="okhttp-3.2.0" level="project" />
     <orderEntry type="library" exported="" name="android-android-14" level="project" />
   </component>

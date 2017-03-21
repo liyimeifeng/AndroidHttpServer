@@ -76,6 +76,7 @@ public class FileUtil {
 
         return is;
     }
+
     /**
      * 由得到的输入流把下载的文件写入到SD卡的指定位置
      * @param is

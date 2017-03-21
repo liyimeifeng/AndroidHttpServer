@@ -68,13 +68,13 @@ public class RequestManager {
         return inst;
     }
 
-    /**
-     * 下载文件
-     * @param fileUrl 文件url
-     * @param destFileDir 存储目标目录
-     */
-      public static String destFileDir= Environment.getExternalStorageDirectory().getAbsolutePath()+ File.separator + "Download/";
+    public static String destFileDir= Environment.getExternalStorageDirectory().getAbsolutePath()+ File.separator + "Download/";
     String fileName = "";
+
+    /**
+     * 将Url分割出要下载的文件名字，从等号处分割
+     * @param url
+     */
     public void split(String url){
         String s = new String(url);
         String a[] = s.split("=");
@@ -94,6 +94,13 @@ public class RequestManager {
 
     }
 
+
+
+    /**
+     * 下载文件
+     * @param fileUrl 文件url
+     *
+     */
     public <T> void downLoadFile(String fileUrl,  final ReqCallBack<T> callBack) {
         split(fileUrl);
         final File file = new File(destFileDir, fileName);
