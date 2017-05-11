@@ -1,9 +1,9 @@
-package org.join.ws.serv.support;
+package com.socket.org.join.ws.serv.support;
 
 import java.io.File;
 import java.util.HashMap;
 
-import org.join.ws.util.CommonUtil;
+import com.socket.org.join.ws.util.CommonUtil;
 
 /**
  * @brief MIME类型

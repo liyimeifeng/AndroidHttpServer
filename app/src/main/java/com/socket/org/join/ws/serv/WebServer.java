@@ -1,6 +1,13 @@
-package org.join.ws.serv;
+package com.socket.org.join.ws.serv;
 
 import android.util.Log;
+
+import com.socket.org.join.ws.Constants;
+//import com.socket.org.join.ws.serv.req.HttpDelHandler;
+//import com.socket.org.join.ws.serv.req.HttpDownHandler;
+//import com.socket.org.join.ws.serv.req.HttpProgressHandler;
+//import com.socket.org.join.ws.serv.req.HttpUpHandler;
+import com.socket.org.join.ws.util.CommonUtil;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -22,13 +29,8 @@ import org.apache.http.protocol.ResponseConnControl;
 import org.apache.http.protocol.ResponseContent;
 import org.apache.http.protocol.ResponseDate;
 import org.apache.http.protocol.ResponseServer;
-import org.join.ws.Constants.Config;
-import org.join.ws.serv.req.HttpDelHandler;
-import org.join.ws.serv.req.HttpDownHandler;
-import org.join.ws.serv.req.HttpFBHandler;
-import org.join.ws.serv.req.HttpProgressHandler;
-import org.join.ws.serv.req.HttpUpHandler;
-import org.join.ws.util.CommonUtil;
+
+import com.socket.org.join.ws.serv.req.HttpFBHandler;
 
 /**
  * @brief Web服务类
@@ -37,7 +39,7 @@ import org.join.ws.util.CommonUtil;
 public class WebServer extends Thread {
 
     static final String TAG = "WebServer";
-    static final boolean DEBUG = false || Config.DEV_MODE;
+    static final boolean DEBUG = false || Constants.Config.DEV_MODE;
 
     public static final int ERR_UNEXPECT = 0x0101;
     public static final int ERR_PORT_IN_USE = 0x0102;
@@ -98,25 +100,24 @@ public class WebServer extends Thread {
             // 创建HTTP请求执行器注册表
             HttpRequestHandlerRegistry reqistry = new HttpRequestHandlerRegistry();
             // 增加HTTP请求执行器
-            reqistry.register(UrlPattern.DOWNLOAD, new HttpDownHandler(webRoot));
-            reqistry.register(UrlPattern.DELETE, new HttpDelHandler(webRoot));
-            reqistry.register(UrlPattern.UPLOAD, new HttpUpHandler(webRoot));
-            reqistry.register(UrlPattern.PROGRESS, new HttpProgressHandler());
-            Log.i(TAG, "客服这边即将返端回的浏览目录");
+//            reqistry.register(UrlPattern.DOWNLOAD , new HttpDownHandler(webRoot));
+//            reqistry.register(UrlPattern.DELETE, new HttpDelHandler(webRoot));
+//            reqistry.register(UrlPattern.UPLOAD, new HttpUpHandler(webRoot));
+//            reqistry.register(UrlPattern.PROGRESS, new HttpProgressHandler());
+//            Log.i(TAG, "客服这边即将返端回的浏览目录");
             reqistry.register(UrlPattern.BROWSE, new HttpFBHandler(webRoot));
             // 设置HTTP请求执行器
             httpService.setHandlerResolver(reqistry);
             // 回调通知服务开始
             if (mListener != null) {
+                Log.e(TAG, "========第一次启动Http服务器");
                 mListener.onStarted();
             }
             /* 循环接收各客户端 */
             isLoop = true;
             while (isLoop && !Thread.interrupted()) {
-                Log.i(TAG, "准备循环接受客户端套接字");
                 // 接收客户端套接字
                 Socket socket = serverSocket.accept();
-                Log.i(TAG, "接收到的套接字为----》" + socket);
                 // 绑定至服务器端HTTP连接
                 DefaultHttpServerConnection conn = new DefaultHttpServerConnection();
                 conn.bind(socket, params);

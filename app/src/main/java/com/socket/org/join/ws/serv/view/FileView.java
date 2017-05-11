@@ -1,4 +1,4 @@
-package org.join.ws.serv.view;
+package com.socket.org.join.ws.serv.view;
 
 import java.io.File;
 import java.io.IOException;
@@ -6,13 +6,15 @@ import java.io.IOException;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpRequest;
 import org.apache.http.entity.FileEntity;
-import org.join.ws.Constants.Config;
-import org.join.ws.serv.GzipFilter;
-import org.join.ws.serv.entity.GzipFileEntity;
-import org.join.ws.serv.support.GzipUtil;
-import org.join.ws.serv.support.MIME;
+
+import com.socket.org.join.ws.serv.GzipFilter;
+import com.socket.org.join.ws.serv.entity.GzipFileEntity;
+import com.socket.org.join.ws.serv.support.GzipUtil;
+import com.socket.org.join.ws.serv.support.MIME;
 
 import android.util.Log;
+
+import com.socket.org.join.ws.Constants;
 
 /**
  * 文件视图渲染
@@ -21,10 +23,10 @@ import android.util.Log;
 public class FileView extends BaseView<File, String> {
 
     static final String TAG = "FileView";
-    static final boolean DEBUG = false || Config.DEV_MODE;
+    static final boolean DEBUG = false || Constants.Config.DEV_MODE;
 
     /**
-     * @details contentType为null时，默认通过{@link MIME#getMimeType(File)}获取且charset为{@link Config#ENCODING}
+     * @details contentType为null时，默认通过{@link MIME#getMimeType(File)}获取且charset为{@link Constants.Config#ENCODING}
      * @param contentType 文件响应类型
      * @see BaseView#render(Object, Object)
      */
@@ -33,13 +35,13 @@ public class FileView extends BaseView<File, String> {
             throws IOException {
         if (contentType == null) {
             String mine = MIME.getFromFile(file);
-            contentType = null == mine ? "charset=" + Config.ENCODING : mine + ";charset="
-                    + Config.ENCODING;
+            contentType = null == mine ? "charset=" + Constants.Config.ENCODING : mine + ";charset="
+                    + Constants.Config.ENCODING;
         }
-        if (Config.USE_GZIP && GzipUtil.getSingleton().isGZipSupported(request)
+        if (Constants.Config.USE_GZIP && GzipUtil.getSingleton().isGZipSupported(request)
                 && GzipFilter.isGzipFile(file)) {
-            if (Config.USE_FILE_CACHE) {
-                File cacheFile = new File(Config.FILE_CACHE_DIR, file.getName() + Config.EXT_GZIP);
+            if (Constants.Config.USE_FILE_CACHE) {
+                File cacheFile = new File(Constants.Config.FILE_CACHE_DIR, file.getName() + Constants.Config.EXT_GZIP);
                 if (cacheFile.exists()) {
                     if (DEBUG)
                         Log.d(TAG, "Read from cache " + cacheFile);

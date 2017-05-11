@@ -1,4 +1,4 @@
-package org.join.ws.serv.req.objs;
+package com.socket.org.join.ws.serv.req.objs;
 
 /**
  * @brief 渲染的行信息

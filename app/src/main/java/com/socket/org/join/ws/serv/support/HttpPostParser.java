@@ -1,9 +1,10 @@
-package org.join.ws.serv.support;
+package com.socket.org.join.ws.serv.support;
+
+//import com.socket.org.apache.commons.fileupload.ParameterParser;
 
 import java.io.IOException;
 import java.util.Map;
 
-import org.apache.commons.fileupload.ParameterParser;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpEntityEnclosingRequest;
 import org.apache.http.HttpRequest;
@@ -30,9 +31,10 @@ public class HttpPostParser {
      * @warning 需保证是post请求且不是multipart的。
      */
     public Map<String, String> parse(HttpRequest request) throws IOException {
-        ParameterParser parser = new ParameterParser();
-        parser.setLowerCaseNames(true);
-        return parser.parse(getContent(request), '&');
+//        ParameterParser parser = new ParameterParser();
+//        parser.setLowerCaseNames(true);
+//        return parser.parse(getContent(request), '&');
+        return null;
     }
 
     public String getContent(HttpRequest request) throws IOException {

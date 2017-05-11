@@ -1,4 +1,4 @@
-package org.join.ws.receiver;
+package com.socket.org.join.ws.receiver;
 
 public interface OnWsListener {
 

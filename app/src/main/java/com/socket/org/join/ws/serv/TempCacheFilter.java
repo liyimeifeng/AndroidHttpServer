@@ -1,4 +1,4 @@
-package org.join.ws.serv;
+package com.socket.org.join.ws.serv;
 
 import java.util.Arrays;
 import java.util.HashSet;

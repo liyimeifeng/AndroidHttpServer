@@ -1,4 +1,4 @@
-package org.join.ws.serv.view;
+package com.socket.org.join.ws.serv.view;
 
 import java.io.File;
 import java.io.IOException;

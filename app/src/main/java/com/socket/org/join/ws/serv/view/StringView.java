@@ -1,11 +1,12 @@
-package org.join.ws.serv.view;
+package com.socket.org.join.ws.serv.view;
+
+import com.socket.org.join.ws.Constants;
 
 import java.io.IOException;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpRequest;
 import org.apache.http.entity.StringEntity;
-import org.join.ws.Constants.Config;
 
 /**
  * 字符串视图渲染
@@ -23,7 +24,7 @@ public class StringView extends BaseView<String, Object[]> {
         if (args != null) {
             content = String.format(content, args);
         }
-        return new StringEntity(content, Config.ENCODING);
+        return new StringEntity(content, Constants.Config.ENCODING);
     }
 
 }

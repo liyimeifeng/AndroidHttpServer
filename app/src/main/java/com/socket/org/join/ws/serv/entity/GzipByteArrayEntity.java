@@ -1,4 +1,4 @@
-package org.join.ws.serv.entity;
+package com.socket.org.join.ws.serv.entity;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;

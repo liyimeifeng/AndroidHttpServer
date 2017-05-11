@@ -1,7 +1,7 @@
-package org.join.ws.ui;
+package com.socket.org.join.ws.ui;
 
-import org.join.ws.serv.WebServer.OnWebServListener;
-import org.join.ws.service.WebService;
+import com.socket.org.join.ws.serv.WebServer.OnWebServListener;
+import com.socket.org.join.ws.service.WebService;
 
 import android.app.Activity;
 import android.content.ComponentName;

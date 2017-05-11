@@ -1,11 +1,11 @@
-package org.join.ws.serv;
+package com.socket.org.join.ws.serv;
+
+import com.socket.org.join.ws.util.CommonUtil;
 
 import java.io.File;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
-
-import org.join.ws.util.CommonUtil;
 
 /**
  * Gzip压缩过滤器

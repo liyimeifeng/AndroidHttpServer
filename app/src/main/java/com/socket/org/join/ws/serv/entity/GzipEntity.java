@@ -1,4 +1,6 @@
-package org.join.ws.serv.entity;
+package com.socket.org.join.ws.serv.entity;
+
+import com.socket.org.join.ws.Constants;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -10,7 +12,6 @@ import java.util.zip.GZIPOutputStream;
 import org.apache.http.Header;
 import org.apache.http.entity.AbstractHttpEntity;
 import org.apache.http.message.BasicHeader;
-import org.join.ws.Constants.Config;
 
 /**
  * 基础Gzip实体
@@ -26,7 +27,7 @@ public abstract class GzipEntity extends AbstractHttpEntity implements Cloneable
      * @throws IOException 输出流
      */
     protected void copy(InputStream instream, OutputStream outstream) throws IOException {
-        byte[] tmp = new byte[Config.BUFFER_LENGTH];
+        byte[] tmp = new byte[Constants.Config.BUFFER_LENGTH];
         int l;
         while ((l = instream.read(tmp)) != -1) {
             outstream.write(tmp, 0, l);

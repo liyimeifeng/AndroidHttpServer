@@ -1,4 +1,4 @@
-package org.join.ws.util;
+package com.socket.org.join.ws.util;
 
 import java.io.File;
 import java.io.IOException;
@@ -11,13 +11,10 @@ import java.text.DecimalFormat;
 import java.util.Enumeration;
 import java.util.List;
 
-import org.join.ws.WSApplication;
-
+import com.socket.manager.ServerManager;
 import android.app.ActivityManager;
 import android.app.ActivityManager.RunningServiceInfo;
 import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Environment;
 import android.os.StatFs;
 import android.text.format.DateFormat;
@@ -38,13 +35,14 @@ public class CommonUtil {
     }
 
     public static CommonUtil getSingleton() {
+        Log.i(TAG, "holder =====>" + "=====" + Holder.instance);
         return Holder.instance;
     }
 
     private Context mContext;
 
     private CommonUtil() {
-        mContext = WSApplication.getInstance().getBaseContext();
+        mContext = ServerManager.getInstant().getContext();
     }
 
     /**
@@ -81,13 +79,14 @@ public class CommonUtil {
      * @warning need ACCESS_NETWORK_STATE permission
      */
     public boolean isNetworkAvailable() {
-        ConnectivityManager manager = (ConnectivityManager) mContext
-                .getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo info = manager.getActiveNetworkInfo();
-        if (null == info) {
-            return false;
-        }
-        return info.isAvailable();
+//        ConnectivityManager manager = (ConnectivityManager) mContext
+//                .getSystemService(Context.CONNECTIVITY_SERVICE);
+//        NetworkInfo info = manager.getActiveNetworkInfo();
+//        if (null == info) {
+//            return false;
+//        }
+//        return info.isAvailable();
+        return true;
     }
 
     /**
@@ -250,7 +249,6 @@ public class CommonUtil {
         boolean flag = false;
         InetAddress theAddress = InetAddress.getByName(host);
         try {
-            Log.i(TAG, "客户端准备发送请求");
             Socket socket = new Socket(theAddress, port);
             socket.close();
             flag = true;

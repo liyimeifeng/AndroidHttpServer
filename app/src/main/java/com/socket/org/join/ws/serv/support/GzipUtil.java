@@ -1,6 +1,6 @@
-package org.join.ws.serv.support;
+package com.socket.org.join.ws.serv.support;
 
-import android.util.Log;
+import com.socket.org.join.ws.Constants;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -12,7 +12,6 @@ import java.util.zip.GZIPOutputStream;
 
 import org.apache.http.Header;
 import org.apache.http.HttpRequest;
-import org.join.ws.Constants.Config;
 
 /**
  * Gzip工具类
@@ -70,7 +69,7 @@ public class GzipUtil {
     public void gzip(InputStream from, OutputStream to) throws IOException {
         GZIPOutputStream gos = new GZIPOutputStream(to);
         int count;
-        byte[] buffer = new byte[Config.BUFFER_LENGTH];
+        byte[] buffer = new byte[Constants.Config.BUFFER_LENGTH];
         while ((count = from.read(buffer)) != -1) {
             gos.write(buffer, 0, count);
         }

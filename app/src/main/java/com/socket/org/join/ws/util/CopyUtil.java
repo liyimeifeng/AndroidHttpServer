@@ -1,4 +1,4 @@
-package org.join.ws.util;
+package com.socket.org.join.ws.util;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -6,10 +6,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-import org.join.ws.Constants.Config;
-
 import android.content.Context;
 import android.content.res.AssetManager;
+
+import com.socket.org.join.ws.Constants;
 
 /**
  * @brief 复制工具
@@ -78,7 +78,7 @@ public class CopyUtil {
     }
 
     private void write(InputStream in, OutputStream out) throws IOException {
-        byte[] buf = new byte[Config.BUFFER_LENGTH];
+        byte[] buf = new byte[Constants.Config.BUFFER_LENGTH];
         int count;
         try {
             while ((count = in.read(buf)) != -1) {

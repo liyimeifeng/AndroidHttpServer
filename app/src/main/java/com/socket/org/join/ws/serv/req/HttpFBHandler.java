@@ -1,4 +1,4 @@
-package org.join.ws.serv.req;
+package com.socket.org.join.ws.serv.req;
 
 import android.util.Log;
 
@@ -14,6 +14,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpException;
 import org.apache.http.HttpRequest;
@@ -21,13 +22,14 @@ import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
 import org.apache.http.protocol.HttpContext;
 import org.apache.http.protocol.HttpRequestHandler;
-import org.join.ws.Constants.Config;
-import org.join.ws.serv.req.objs.FileRow;
-import org.join.ws.serv.support.Progress;
-import org.join.ws.serv.view.ViewFactory;
-import org.join.ws.util.CommonUtil;
 
-import socket.callback.StartClient;
+import com.socket.manager.callback.StartClientListener;
+import com.socket.org.join.ws.serv.req.objs.FileRow;
+import com.socket.org.join.ws.serv.support.Progress;
+import com.socket.org.join.ws.serv.view.ViewFactory;
+import com.socket.org.join.ws.util.CommonUtil;
+
+import com.socket.org.join.ws.Constants;
 
 /**
  * @brief 目录浏览页面请求处理
@@ -45,22 +47,25 @@ public class HttpFBHandler implements HttpRequestHandler {
         this.webRoot = webRoot;
     }
 
-    public HttpFBHandler() {
-    }
-
     @Override
     public void handle(HttpRequest request, HttpResponse response, HttpContext context)
             throws HttpException, IOException {
         //解析请求Uri处理中文乱码的情况
-        String encodeUri = URLDecoder.decode(request.getRequestLine().getUri(), Config.ENCODING);
+        String encodeUri = URLDecoder.decode(request.getRequestLine().getUri(), Constants.Config.ENCODING);
         String Method  = request.getRequestLine().getMethod();
         String Uri = request.getRequestLine().getUri();
         Log.i(TAG, "encodeUri-------> " +encodeUri + "--request----->" + request + "--headers---" + request.getAllHeaders() + "---Method-->" + Method + "--Uri---->" + Uri);
+
+        String rangeHeader = "";
+        Header[] head1 = request.getAllHeaders();
+        for (Header ha:head1){
+            Log.e(TAG, "requestheaders: ======>" + ha.getName() + " =======" + ha.getValue());
+        }
+
         File file;
-        Log.i(TAG, "webRoot-------> "  + webRoot);
         if (encodeUri.equals("/")) {//uri只有一个正斜杠的情况下打开主目录
             file = new File(this.webRoot);
-        } else if (!encodeUri.startsWith(Config.SERV_ROOT_DIR) && !encodeUri.startsWith(this.webRoot)) {
+        } else if (!encodeUri.startsWith(Constants.Config.SERV_ROOT_DIR) && !encodeUri.startsWith(this.webRoot)) {
             response.setStatusCode(HttpStatus.SC_FORBIDDEN);
             response.setEntity(resp403(request));
             return;
@@ -69,7 +74,7 @@ public class HttpFBHandler implements HttpRequestHandler {
         }
 
         HttpEntity entity;
-        String contentType = "text/html;charset=" + Config.ENCODING;
+        String contentType = "text/html;charset=" + Constants.Config.ENCODING;
         if (!file.exists()) { // 不存在
             response.setStatusCode(HttpStatus.SC_NOT_FOUND);
             entity = resp404(request);
@@ -86,19 +91,21 @@ public class HttpFBHandler implements HttpRequestHandler {
             entity = resp403(request);
         }
 
+        long fileSize = entity.getContentLength();
+        long start = 0;
+        if (null != rangeHeader && rangeHeader.startsWith("bytes=")) {
+            String[] values = rangeHeader.split("=")[1].split("-");
+            start = Integer.parseInt(values[0]);
+        }
         response.setHeader("Content-Type", contentType);
+        response.setHeader("RANGE",rangeHeader);
+        response.setHeader("Accept-Ranges","bytes");
+        response.setHeader("Content-Range", "bytes " + start + "-" + (fileSize - 1) + "/" + fileSize);
         response.setEntity(entity);
 
         Progress.clear();
     }
 
-    /**
-     * 浏览成功打开页面处理成客服端成功打开，进行回调
-     */
-    private StartClient startClient;
-    public void setStartClientCallback(StartClient callback){
-        this.startClient = callback;
-    }
 
     private HttpEntity respFile(HttpRequest request, File file) throws IOException {
         return mViewFactory.renderFile(request, file);
@@ -164,14 +171,14 @@ public class HttpFBHandler implements HttpRequestHandler {
         row.time = sdf.format(new Date(f.lastModified()));
         if (f.canRead()) {
             row.can_browse = true;
-            if (Config.ALLOW_DOWNLOAD) {
+            if (Constants.Config.ALLOW_DOWNLOAD) {
                 row.can_download = true;
             }
             if (f.canWrite() && !hasWsDir(f)) {
-                if (Config.ALLOW_DELETE) {
+                if (Constants.Config.ALLOW_DELETE) {
                     row.can_delete = true;
                 }
-                if (Config.ALLOW_UPLOAD && isDir) {
+                if (Constants.Config.ALLOW_UPLOAD && isDir) {
                     row.can_upload = true;
                 }
             }
@@ -180,7 +187,9 @@ public class HttpFBHandler implements HttpRequestHandler {
     }
 
     private boolean hasWsDir(File f) {
-        return HttpDelHandler.hasWsDir(f);
+//        return HttpDelHandler.hasWsDir(f);
+        String path = f.isDirectory() ? f.getAbsolutePath() + "/" : f.getAbsolutePath();
+        return path.indexOf(Constants.APP_DIR_NAME) != -1;
     }
 
     /** 排序：文件夹、文件，再各安字符顺序 */

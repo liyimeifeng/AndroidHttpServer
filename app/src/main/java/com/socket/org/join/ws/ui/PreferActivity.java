@@ -1,4 +1,4 @@
-package org.join.ws.ui;
+package com.socket.org.join.ws.ui;
 
 import java.io.File;
 import java.io.IOException;
@@ -6,22 +6,18 @@ import java.lang.reflect.Field;
 import java.util.regex.Pattern;
 
 import org.apache.commons.io.FileUtils;
-import org.join.web.serv.R;
-import org.join.ws.Constants.Config;
-import org.join.ws.WSApplication;
-import org.join.ws.ui.widget.FileBrowser;
-import org.join.ws.ui.widget.ProgressBarPreference;
-import org.join.ws.util.CopyUtil;
+
+
+import com.socket.communication.R;
+import com.socket.org.join.ws.WSApplication;
+import com.socket.org.join.ws.util.CopyUtil;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
@@ -34,6 +30,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 
+import com.socket.org.join.ws.Constants;
+
 /**
  * @brief 偏好设置
  * @author join
@@ -42,7 +40,7 @@ import android.widget.ProgressBar;
 public class PreferActivity extends PreferenceActivity {
 
     static final String TAG = "PreferActivity";
-    static final boolean DEBUG = false || Config.DEV_MODE;
+    static final boolean DEBUG = false || Constants.Config.DEV_MODE;
 
     public static final String KEY_SERV_PORT = "serv_port";
     public static final String KEY_SERV_ROOT = "serv_root";
@@ -62,13 +60,13 @@ public class PreferActivity extends PreferenceActivity {
 
     private Preference currentPreference;
 
-    private String currentRoot = Config.WEBROOT;
+    private String currentRoot = Constants.Config.WEBROOT;
     private boolean isRunning = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.prefer);
+//        addPreferencesFromResource(R.xml.prefer);
 
         isRunning = getIntent().getBooleanExtra("isRunning", false);
     }
@@ -78,59 +76,59 @@ public class PreferActivity extends PreferenceActivity {
      * @param key 键
      * @param value 值
      */
-    public static void save(String key, Object value) {
-        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(WSApplication
-                .getInstance());
-        Editor editor = sp.edit();
-        if (value instanceof Integer) {
-            editor.putInt(key, (Integer) value);
-        } else if (value instanceof String) {
-            editor.putString(key, (String) value);
-        }
-        editor.commit();
-    }
+//    public static void save(String key, Object value) {
+//        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(WSApplication
+//                .getInstance());
+//        Editor editor = sp.edit();
+//        if (value instanceof Integer) {
+//            editor.putInt(key, (Integer) value);
+//        } else if (value instanceof String) {
+//            editor.putString(key, (String) value);
+//        }
+//        editor.commit();
+//    }
 
     /**
      * 恢复某些配置
      */
     public static void restore(String... keys) {
-        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(WSApplication
-                .getInstance());
-        for (String key : keys) {
-            restore(sp, key);
-        }
+//        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(WSApplication
+//                .getInstance());
+//        for (String key : keys) {
+//            restore(sp, key);
+//        }
     }
 
     /**
      * 恢复所有配置
      */
-    public static void restoreAll() {
-        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(WSApplication
-                .getInstance());
-        Config.PORT = sp.getInt(KEY_SERV_PORT,8080);
-        Config.WEBROOT = sp.getString(KEY_SERV_ROOT, "/");
-        Config.ALLOW_DOWNLOAD = sp.getBoolean(KEY_ALLOW_DOWNLOAD, true);
-        Config.ALLOW_DELETE = sp.getBoolean(KEY_ALLOW_DELETE, true);
-        Config.ALLOW_UPLOAD = sp.getBoolean(KEY_ALLOW_UPLOAD, true);
-        Config.USE_GZIP = sp.getBoolean(KEY_MORE_GZIP, true);
-        Config.USE_FILE_CACHE = sp.getBoolean(KEY_MORE_GZIP, true);
-    }
+//    public static void restoreAll() {
+//        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(WSApplication
+//                .getInstance());
+//        Constants.Config.PORT = sp.getInt(KEY_SERV_PORT,8080);
+//        Constants.Config.WEBROOT = sp.getString(KEY_SERV_ROOT, "/");
+//        Constants.Config.ALLOW_DOWNLOAD = sp.getBoolean(KEY_ALLOW_DOWNLOAD, true);
+//        Constants.Config.ALLOW_DELETE = sp.getBoolean(KEY_ALLOW_DELETE, true);
+//        Constants.Config.ALLOW_UPLOAD = sp.getBoolean(KEY_ALLOW_UPLOAD, true);
+//        Constants.Config.USE_GZIP = sp.getBoolean(KEY_MORE_GZIP, true);
+//        Constants.Config.USE_FILE_CACHE = sp.getBoolean(KEY_MORE_GZIP, true);
+//    }
 
     private static void restore(SharedPreferences sp, String key) {
         if (key.equals(KEY_SERV_PORT)) {
-            Config.PORT = sp.getInt(KEY_SERV_PORT, 8080);
+            Constants.Config.PORT = sp.getInt(KEY_SERV_PORT, 8080);
         } else if (key.equals(KEY_SERV_ROOT)) {
-            Config.WEBROOT = sp.getString(KEY_SERV_ROOT, "/");
+            Constants.Config.WEBROOT = sp.getString(KEY_SERV_ROOT, "/");
         } else if (key.equals(KEY_ALLOW_DOWNLOAD)) {
-            Config.ALLOW_DOWNLOAD = sp.getBoolean(KEY_ALLOW_DOWNLOAD, true);
+            Constants.Config.ALLOW_DOWNLOAD = sp.getBoolean(KEY_ALLOW_DOWNLOAD, true);
         } else if (key.equals(KEY_ALLOW_DELETE)) {
-            Config.ALLOW_DELETE = sp.getBoolean(KEY_ALLOW_DELETE, true);
+            Constants.Config.ALLOW_DELETE = sp.getBoolean(KEY_ALLOW_DELETE, true);
         } else if (key.equals(KEY_ALLOW_UPLOAD)) {
-            Config.ALLOW_UPLOAD = sp.getBoolean(KEY_ALLOW_UPLOAD, true);
+            Constants.Config.ALLOW_UPLOAD = sp.getBoolean(KEY_ALLOW_UPLOAD, true);
         } else if (key.equals(KEY_MORE_GZIP)) {
-            Config.USE_GZIP = sp.getBoolean(KEY_MORE_GZIP, true);
+            Constants.Config.USE_GZIP = sp.getBoolean(KEY_MORE_GZIP, true);
         } else if (key.equals(KEY_MORE_CACHE)) {
-            Config.USE_FILE_CACHE = sp.getBoolean(KEY_MORE_GZIP, true);
+            Constants.Config.USE_FILE_CACHE = sp.getBoolean(KEY_MORE_GZIP, true);
         } else {
             Log.w(TAG, "Ignore key: " + key);
         }
@@ -145,15 +143,15 @@ public class PreferActivity extends PreferenceActivity {
             if (DEBUG)
                 Log.d(TAG, "isChecked=" + isChecked);
             if (key.equals(KEY_ALLOW_DOWNLOAD)) {
-                Config.ALLOW_DOWNLOAD = isChecked;
+                Constants.Config.ALLOW_DOWNLOAD = isChecked;
             } else if (key.equals(KEY_ALLOW_DELETE)) {
-                Config.ALLOW_DELETE = isChecked;
+                Constants.Config.ALLOW_DELETE = isChecked;
             } else if (key.equals(KEY_ALLOW_UPLOAD)) {
-                Config.ALLOW_UPLOAD = isChecked;
+                Constants.Config.ALLOW_UPLOAD = isChecked;
             } else if (key.equals(KEY_MORE_GZIP)) {
-                Config.USE_GZIP = isChecked;
+                Constants.Config.USE_GZIP = isChecked;
             } else if (key.equals(KEY_MORE_CACHE)) {
-                Config.USE_FILE_CACHE = isChecked;
+                Constants.Config.USE_FILE_CACHE = isChecked;
             }
         } else if (key.equals(KEY_SERV_PORT)) {
             showDialog(DLG_EDIT_PORT);
@@ -173,10 +171,10 @@ public class PreferActivity extends PreferenceActivity {
 
     public void doReset() {
         CopyUtil mCopyUtil = new CopyUtil(this);
-        mCopyUtil.deleteFile(new File(Config.SERV_ROOT_DIR)); // delete assets
-        mCopyUtil.deleteFile(new File(Config.FILE_CACHE_DIR)); // delete caches
+        mCopyUtil.deleteFile(new File(Constants.Config.SERV_ROOT_DIR)); // delete assets
+        mCopyUtil.deleteFile(new File(Constants.Config.FILE_CACHE_DIR)); // delete caches
         try {
-            mCopyUtil.assetsCopy("ws", Config.SERV_ROOT_DIR, false); // reset assets
+            mCopyUtil.assetsCopy("ws", Constants.Config.SERV_ROOT_DIR, false); // reset assets
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -184,7 +182,7 @@ public class PreferActivity extends PreferenceActivity {
 
     public void doClean() {
         try {
-            FileUtils.deleteDirectory(new File(Config.FILE_CACHE_DIR));
+            FileUtils.deleteDirectory(new File(Constants.Config.FILE_CACHE_DIR));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -195,15 +193,15 @@ public class PreferActivity extends PreferenceActivity {
         switch (id) {
         case DLG_EDIT_PORT:
             final EditText editText = (EditText) dialog.findViewById(R.id.dlg_edittext);
-            String text = Config.PORT + "";
+            String text = Constants.Config.PORT + "";
             editText.setText(text);
             editText.setSelection(text.length());
             break;
         case DLG_LIST_ROOT:
-            currentRoot = Config.WEBROOT;
+            currentRoot = Constants.Config.WEBROOT;
             dialog.setTitle(currentRoot);
-            final FileBrowser fileBrowser = (FileBrowser) dialog.findViewById(R.id.filebrowser);
-            fileBrowser.browse(currentRoot);
+//            final FileBrowser fileBrowser = (FileBrowser) dialog.findViewById(R.id.filebrowser);
+//            fileBrowser.browse(currentRoot);
             break;
         }
         super.onPrepareDialog(id, dialog);
@@ -211,97 +209,97 @@ public class PreferActivity extends PreferenceActivity {
 
     @Override
     protected Dialog onCreateDialog(int id) {
-        switch (id) {
-        case DLG_EDIT_PORT:
-            final EditText editText = new EditText(this);
-            editText.setId(R.id.dlg_edittext);
-            final OnClickListener listener = new OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    if (which == DialogInterface.BUTTON_POSITIVE) {
-                        String val = editText.getEditableText().toString();
-                        Pattern pattern = Pattern.compile("[0-9]{4,5}");
-                        if (pattern.matcher(val).matches()) {
-                            int port = Integer.parseInt(val);
-                            if (port >= 1024 && port <= 65535) {
-                                if (isRunning) {
-                                    // Restore before server is created.
-                                } else {
-                                    Config.PORT = port;
-                                }
-                                save(KEY_SERV_PORT, port);
-                                closeDialog(dialog, true);
-                                return;
-                            }
-                        }
-                        editText.setError(getString(R.string.info_port_incorrect));
-                        closeDialog(dialog, false);
-                    } else {
-                        editText.setError(null);
-                        closeDialog(dialog, true);
-                    }
-                }
-            };
-            return new AlertDialog.Builder(this).setIcon(android.R.drawable.ic_dialog_alert)
-                    .setTitle(R.string.set_serv_port_dlg_t).setView(editText)
-                    .setPositiveButton(android.R.string.ok, listener)
-                    .setNegativeButton(android.R.string.cancel, listener).create();
-        case DLG_LIST_ROOT:
-            final FileBrowser fileBrowser = (FileBrowser) getLayoutInflater().inflate(
-                    R.layout.filebrowser, null);
-            final AlertDialog dialog = new AlertDialog.Builder(this)
-                    .setIcon(android.R.drawable.ic_dialog_alert).setTitle(currentRoot)
-                    .setView(fileBrowser)
-                    .setPositiveButton(android.R.string.ok, new OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            if (isRunning) {
-                                // Restore before server is created.
-                            } else {
-                                Config.WEBROOT = currentRoot;
-                            }
-                            save(KEY_SERV_ROOT, currentRoot);
-                        }
-                    }).setNegativeButton(android.R.string.cancel, null).create();
-            fileBrowser.setOnBrowserListener(new FileBrowser.OnBrowserListener() {
-                @Override
-                public void onFileItemClick(String filename) {
-                }
-
-                @Override
-                public void onDirItemClick(String path) {
-                    currentRoot = path;
-                    dialog.setTitle(currentRoot);
-                }
-            });
-            return dialog;
-        case DLG_CONF_RESET:
-            return createConfirmDialog(android.R.drawable.ic_delete, R.string.set_serv_reset_t,
-                    R.string.set_serv_reset_s, new OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            runAsyncTask(new Runnable() {
-                                @Override
-                                public void run() {
-                                    doReset();
-                                }
-                            });
-                        }
-                    });
-        case DLG_CONF_CLEAN:
-            return createConfirmDialog(android.R.drawable.ic_delete, R.string.set_more_clean_t,
-                    R.string.set_more_clean_s, new OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            runAsyncTask(new Runnable() {
-                                @Override
-                                public void run() {
-                                    doClean();
-                                }
-                            });
-                        }
-                    });
-        }
+//        switch (id) {
+//        case DLG_EDIT_PORT:
+//            final EditText editText = new EditText(this);
+//            editText.setId(R.id.dlg_edittext);
+//            final OnClickListener listener = new OnClickListener() {
+//                @Override
+//                public void onClick(DialogInterface dialog, int which) {
+//                    if (which == DialogInterface.BUTTON_POSITIVE) {
+//                        String val = editText.getEditableText().toString();
+//                        Pattern pattern = Pattern.compile("[0-9]{4,5}");
+//                        if (pattern.matcher(val).matches()) {
+//                            int port = Integer.parseInt(val);
+//                            if (port >= 1024 && port <= 65535) {
+//                                if (isRunning) {
+//                                    // Restore before server is created.
+//                                } else {
+//                                    Constants.Config.PORT = port;
+//                                }
+//                                save(KEY_SERV_PORT, port);
+//                                closeDialog(dialog, true);
+//                                return;
+//                            }
+//                        }
+//                        editText.setError(getString(R.string.info_port_incorrect));
+//                        closeDialog(dialog, false);
+//                    } else {
+//                        editText.setError(null);
+//                        closeDialog(dialog, true);
+//                    }
+//                }
+//            };
+//            return new AlertDialog.Builder(this).setIcon(android.R.drawable.ic_dialog_alert)
+//                    .setTitle(R.string.set_serv_port_dlg_t).setView(editText)
+//                    .setPositiveButton(android.R.string.ok, listener)
+//                    .setNegativeButton(android.R.string.cancel, listener).create();
+//        case DLG_LIST_ROOT:
+//            final FileBrowser fileBrowser = (FileBrowser) getLayoutInflater().inflate(
+//                    R.layout.filebrowser, null);
+//            final AlertDialog dialog = new AlertDialog.Builder(this)
+//                    .setIcon(android.R.drawable.ic_dialog_alert).setTitle(currentRoot)
+//                    .setView(fileBrowser)
+//                    .setPositiveButton(android.R.string.ok, new OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialog, int which) {
+//                            if (isRunning) {
+//                                // Restore before server is created.
+//                            } else {
+//                                Constants.Config.WEBROOT = currentRoot;
+//                            }
+//                            save(KEY_SERV_ROOT, currentRoot);
+//                        }
+//                    }).setNegativeButton(android.R.string.cancel, null).create();
+//            fileBrowser.setOnBrowserListener(new FileBrowser.OnBrowserListener() {
+//                @Override
+//                public void onFileItemClick(String filename) {
+//                }
+//
+//                @Override
+//                public void onDirItemClick(String path) {
+//                    currentRoot = path;
+//                    dialog.setTitle(currentRoot);
+//                }
+//            });
+//            return dialog;
+//        case DLG_CONF_RESET:
+//            return createConfirmDialog(android.R.drawable.ic_delete, R.string.set_serv_reset_t,
+//                    R.string.set_serv_reset_s, new OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialog, int which) {
+//                            runAsyncTask(new Runnable() {
+//                                @Override
+//                                public void run() {
+//                                    doReset();
+//                                }
+//                            });
+//                        }
+//                    });
+//        case DLG_CONF_CLEAN:
+//            return createConfirmDialog(android.R.drawable.ic_delete, R.string.set_more_clean_t,
+//                    R.string.set_more_clean_s, new OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialog, int which) {
+//                            runAsyncTask(new Runnable() {
+//                                @Override
+//                                public void run() {
+//                                    doClean();
+//                                }
+//                            });
+//                        }
+//                    });
+//        }
         return super.onCreateDialog(id);
     }
 
@@ -330,10 +328,10 @@ public class PreferActivity extends PreferenceActivity {
 
             @Override
             public void pre() {
-                if (currentPreference instanceof ProgressBarPreference) {
-                    mProgressBar = ((ProgressBarPreference) currentPreference).getProgressBar();
-                    mProgressBar.setVisibility(View.VISIBLE);
-                }
+//                if (currentPreference instanceof ProgressBarPreference) {
+//                    mProgressBar = ((ProgressBarPreference) currentPreference).getProgressBar();
+//                    mProgressBar.setVisibility(View.VISIBLE);
+//                }
             }
 
             @Override

@@ -1,4 +1,6 @@
-package org.join.ws.serv;
+package com.socket.org.join.ws.serv;
+
+import com.socket.org.join.ws.Constants;
 
 import java.io.IOException;
 
@@ -8,8 +10,6 @@ import org.apache.http.HttpServerConnection;
 import org.apache.http.protocol.BasicHttpContext;
 import org.apache.http.protocol.HttpContext;
 import org.apache.http.protocol.HttpService;
-import org.join.ws.Constants.Config;
-import org.join.ws.serv.WebServer.OnWebServListener;
 
 /**
  * @brief Web服务工作线程
@@ -17,14 +17,14 @@ import org.join.ws.serv.WebServer.OnWebServListener;
  */
 public class WorkerThread extends Thread {
 
-    static final boolean DEBUG = false || Config.DEV_MODE;
+    static final boolean DEBUG = false || Constants.Config.DEV_MODE;
 
     private final HttpService httpservice;
     private final HttpServerConnection conn;
-    private final OnWebServListener listener;
+    private final WebServer.OnWebServListener listener;
 
     public WorkerThread(HttpService httpservice, HttpServerConnection conn,
-            OnWebServListener listener) {
+            WebServer.OnWebServListener listener) {
         super();
         this.httpservice = httpservice;
         this.conn = conn;

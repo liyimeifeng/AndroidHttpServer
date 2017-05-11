@@ -1,4 +1,4 @@
-package org.join.ws.serv.view;
+package com.socket.org.join.ws.serv.view;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -12,13 +12,15 @@ import org.apache.http.HttpEntity;
 import org.apache.http.HttpRequest;
 import org.apache.http.entity.FileEntity;
 import org.apache.http.entity.StringEntity;
-import org.join.ws.Constants.Config;
-import org.join.ws.serv.TempCacheFilter;
-import org.join.ws.serv.entity.GzipByteArrayEntity;
-import org.join.ws.serv.entity.GzipFileEntity;
-import org.join.ws.serv.support.GzipUtil;
+
+import com.socket.org.join.ws.serv.TempCacheFilter;
+import com.socket.org.join.ws.serv.entity.GzipByteArrayEntity;
+import com.socket.org.join.ws.serv.entity.GzipFileEntity;
+import com.socket.org.join.ws.serv.support.GzipUtil;
 
 import android.util.Log;
+
+import com.socket.org.join.ws.Constants;
 
 /**
  * 模板文件视图渲染
@@ -27,7 +29,7 @@ import android.util.Log;
 public class TempView extends BaseView<String, Map<String, Object>> {
 
     static final String TAG = "TempView";
-    static final boolean DEBUG = false || Config.DEV_MODE;
+    static final boolean DEBUG = false || Constants.Config.DEV_MODE;
 
     /**
      * @details 默认charset为{@link Config#ENCODING}
@@ -37,9 +39,9 @@ public class TempView extends BaseView<String, Map<String, Object>> {
     @Override
     public HttpEntity render(HttpRequest request, final String tempFile,
             final Map<String, Object> data) throws IOException {
-        if (Config.USE_GZIP && GzipUtil.getSingleton().isGZipSupported(request)) {
-            if (Config.USE_FILE_CACHE && TempCacheFilter.isCacheTemp(tempFile)) {
-                File cacheFile = new File(Config.FILE_CACHE_DIR, tempFile + Config.EXT_GZIP);
+        if (Constants.Config.USE_GZIP && GzipUtil.getSingleton().isGZipSupported(request)) {
+            if (Constants.Config.USE_FILE_CACHE && TempCacheFilter.isCacheTemp(tempFile)) {
+                File cacheFile = new File(Constants.Config.FILE_CACHE_DIR, tempFile + Constants.Config.EXT_GZIP);
                 return renderFromCacheGzipFile(cacheFile, tempFile, data);
             } else {
                 if (DEBUG)
@@ -47,12 +49,12 @@ public class TempView extends BaseView<String, Map<String, Object>> {
                 String html = TempHandler.render(tempFile, data);
                 return new GzipByteArrayEntity(html.getBytes(), false);
             }
-        } else if (Config.USE_FILE_CACHE && TempCacheFilter.isCacheTemp(tempFile)) {
-            File cacheFile = new File(Config.FILE_CACHE_DIR, tempFile);
+        } else if (Constants.Config.USE_FILE_CACHE && TempCacheFilter.isCacheTemp(tempFile)) {
+            File cacheFile = new File(Constants.Config.FILE_CACHE_DIR, tempFile);
             return renderFromCacheFile(cacheFile, tempFile, data);
         }
         String html = TempHandler.render(tempFile, data);
-        return new StringEntity(html, Config.ENCODING);
+        return new StringEntity(html, Constants.Config.ENCODING);
     }
 
     private HttpEntity renderFromCacheGzipFile(File cacheFile, String tempFile,

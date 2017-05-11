@@ -1,15 +1,15 @@
-package org.join.ws.receiver;
+package com.socket.org.join.ws.receiver;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import org.join.ws.Constants.Config;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.util.Log;
+
+import com.socket.org.join.ws.Constants;
 
 /**
  * 应用广播接收者
@@ -18,12 +18,12 @@ import android.util.Log;
 public class WSReceiver extends BroadcastReceiver {
 
     static final String TAG = "WSReceiver";
-    static final boolean DEBUG = false || Config.DEV_MODE;
+    static final boolean DEBUG = false || Constants.Config.DEV_MODE;
 
-    public static final String ACTION_SERV_AVAILABLE = "org.join.action.SERV_AVAILABLE";
-    public static final String ACTION_SERV_UNAVAILABLE = "org.join.action.SERV_UNAVAILABLE";
+    public static final String ACTION_SERV_AVAILABLE = "com.socket.org.join.action.SERV_AVAILABLE";
+    public static final String ACTION_SERV_UNAVAILABLE = "com.socket.org.join.action.SERV_UNAVAILABLE";
 
-    public static final String PERMIT_WS_RECEIVER = "org.join.ws.permission.WS_RECEIVER";
+    public static final String PERMIT_WS_RECEIVER = "com.socket.org.join.ws.permission.WS_RECEIVER";
 
     private static Map<Context, WSReceiver> mReceiverMap = new HashMap<Context, WSReceiver>();
 

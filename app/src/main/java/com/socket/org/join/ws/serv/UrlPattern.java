@@ -1,4 +1,4 @@
-package org.join.ws.serv;
+package com.socket.org.join.ws.serv;
 
 public class UrlPattern {
 

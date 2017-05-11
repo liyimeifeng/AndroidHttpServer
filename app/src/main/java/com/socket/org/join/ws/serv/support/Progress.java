@@ -1,4 +1,4 @@
-package org.join.ws.serv.support;
+package com.socket.org.join.ws.serv.support;
 
 import java.util.HashMap;
 import java.util.Map;
