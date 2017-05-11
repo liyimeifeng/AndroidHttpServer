@@ -1,4 +1,4 @@
-package org.join.ws;
+package com.socket.org.join.ws;
 
 import android.os.Environment;
 
@@ -14,7 +14,7 @@ public final class Constants {
     public static class Config {
         public static final boolean DEV_MODE = false;
 
-        public static int PORT = 8080;
+        public static int PORT = 9999;
         public static String WEBROOT = "/";
 
         /** 服务资源文件 */
