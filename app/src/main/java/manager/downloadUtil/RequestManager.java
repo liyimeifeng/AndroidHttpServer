@@ -1,9 +1,12 @@
-package socket.downloadUtil;
+package com.socket.manager.downloadUtil;
 
 import android.content.Context;
 import android.os.Environment;
 import android.os.Handler;
 import android.util.Log;
+
+import com.socket.manager.callback.StartDownloadListener;
+import com.socket.org.join.ws.Constants;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -17,8 +20,6 @@ import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-
-import static android.content.ContentValues.TAG;
 
 /**
  * Created by Administrator on 2017/3/19.
@@ -68,8 +69,6 @@ public class RequestManager {
         return inst;
     }
 
-    public static String destFileDir= Environment.getExternalStorageDirectory().getAbsolutePath()+ File.separator + "Download/";
-    String fileName = "";
 
     /**
      * 将Url分割出要下载的文件名字，从等号处分割
@@ -94,27 +93,63 @@ public class RequestManager {
 
     }
 
-
+    public static String destFileDir= Environment.getExternalStorageDirectory().getAbsolutePath()+ File.separator + "Download/";
+    String fileName = "";
+    String sourFileDir = "";
 
     /**
-     * 下载文件
-     * @param fileUrl 文件url
-     *
+     * 将源文件路径分割出目录和文件名
+     * @param sourceFilePath
      */
-    public <T> void downLoadFile(String fileUrl,  final ReqCallBack<T> callBack) {
-        split(fileUrl);
-        final File file = new File(destFileDir, fileName);
-        if (file.exists()) {
-            successCallBack((T) file, callBack);
-            return;
+    public void getFileNameAndDir(String sourceFilePath){
+        int i = sourceFilePath.lastIndexOf("/");
+        sourFileDir = sourceFilePath.substring(0,i+1);
+        fileName = sourceFilePath.substring(i+1);
+    }
+
+    /**
+     * 判断传入的目标文件目录是否存在，没有则新建
+     * @param path
+     */
+    public void isDirExist(String path){
+        File dir = new File(path);
+        if (!dir.exists()){
+            dir.mkdirs();
         }
-        final Request request = new Request.Builder().url(fileUrl).build();
+    }
+
+
+    /**下载文件
+     * Url有两种写法，http://10.10.30.235:8080/storage/emulated/0/fade.mp3 ，采用此方式，不认Referer
+     *              http://10.10.30.235:8080/dodownload?fname=fade.mp3 ，采用此方式，要认Referer后传入的目录
+     *
+     * @param sourFilePath
+     * @param targetFileDir
+     * @param serverIP
+     * @param callBack
+     * @param <T>
+     */
+    public <T> void downLoadFile(String sourFilePath ,final String targetFileDir,String serverIP , final ReqCallBack<T> callBack) {
+        getFileNameAndDir(sourFilePath);
+        isDirExist(targetFileDir);
+        String fileUrl = "http://" + serverIP+ ":"+ Constants.Config.PORT+ sourFilePath;
+        final File file = new File(targetFileDir, fileName);
+
+        if (file.exists()) {
+            Log.i(TAG, "文件已存在的情况下，继续下载覆盖");
+//            successCallBack((T) file, callBack);
+//            return;
+        }
+        final Request request = new Request.Builder()
+                // TODO: 2017/4/6  下面这句暂时注释，不添加Referer，避免中文路径下载失败的情况
+//                .addHeader("Referer", "http://" + serverIP+ ":"+ Constants.Config.PORT + "/"  + sourFileDir)   //这句话目前正在测试阶段，待确定，暂定为使用目录
+                .url(fileUrl).build();
         final Call call = mOkHttpClient.newCall(request);
         call.enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 Log.e(TAG, e.toString());
-                failedCallBack("下载失败", callBack);
+                failedCallBack("下载失败,请检查网络连接是否正常，服务器是否打开", callBack);
             }
 
             @Override
@@ -125,7 +160,11 @@ public class RequestManager {
                 FileOutputStream fos = null;
                 try {
                     long total = response.body().contentLength();
-                    Log.e(TAG, "total------>" + total);
+                    if (total == -1){
+                        failedCallBack("下载失败，该文件不存在", callBack);
+                        return;
+                    }
+                    Log.e(TAG, "文件大小total------>" + total);
                     long current = 0;
                     is = response.body().byteStream();
                     fos = new FileOutputStream(file);
@@ -135,10 +174,10 @@ public class RequestManager {
                         Log.e(TAG, "current------>" + current);
                     }
                     fos.flush();
-                    successCallBack((T) file, callBack);
+                    successCallBack(file.getAbsolutePath(), callBack);
                 } catch (IOException e) {
                     Log.e(TAG, e.toString());
-                    failedCallBack("下载失败", callBack);
+                    failedCallBack("下载失败,请检查网络连接是否正常，服务器是否打开", callBack);
                 } finally {
                     try {
                         if (is != null) {
@@ -162,15 +201,18 @@ public class RequestManager {
      * @param callBack
      * @param <T>
      */
-    private <T> void successCallBack(final T result, final ReqCallBack<T> callBack) {
-        okHttpHandler.post(new Runnable() {
-            @Override
-            public void run() {
-                if (callBack != null) {
-                    callBack.onReqSuccess(result);
-                }
-            }
-        });
+    private <T> void successCallBack(final String result, final ReqCallBack<T> callBack) {
+        if (callBack != null) {
+            callBack.onReqSuccess(result);
+        }
+//        okHttpHandler.post(new Runnable() {
+//            @Override
+//            public void run() {
+//                if (callBack != null) {
+//                    callBack.onReqSuccess("");
+//                }
+//            }
+//        });
     }
 
     /**
@@ -180,13 +222,9 @@ public class RequestManager {
      * @param <T>
      */
     private <T> void failedCallBack(final String errorMsg, final ReqCallBack<T> callBack) {
-        okHttpHandler.post(new Runnable() {
-            @Override
-            public void run() {
-                if (callBack != null) {
-                    callBack.onReqFailed(errorMsg);
-                }
-            }
-        });
+        if (callBack != null) {
+            callBack.onReqFailed(errorMsg);
+        }
+
     }
 }
