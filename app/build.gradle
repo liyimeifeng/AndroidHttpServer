@@ -1,23 +1,27 @@
+//apply plugin: 'com.android.library'
 apply plugin: 'com.android.application'
-
 android {
-    compileSdkVersion 14
-    buildToolsVersion "23.0.2"
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
 
     defaultConfig {
-        applicationId "org.join.web.serv"
-        minSdkVersion 14
-        targetSdkVersion 19
+//        applicationId "com.li.httpserver"
+        minSdkVersion 15
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
 
-        testFunctionalTest true
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
     }
-
     buildTypes {
         release {
-            minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-project.txt'
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
         }
     }
+    useLibrary 'org.apache.http.legacy'
 }
 
 dependencies {
@@ -27,8 +31,11 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:25.2.0'
     testCompile 'junit:junit:4.12'
+
     compile files('libs/ant-zip.jar')
-    compile files('libs/commons-io-2.5.jar')
-    compile files('libs/jangod-core.jar')
+//    compile 'org.apache.commons:commons-io:2.5.0'  //不可行
+//    compile 'commons-io:commons-io:2.5'                 //测试不可行
+    compile 'org.apache.commons.io:commonsIO:2.5.0'   //测试可行
     compile 'com.squareup.okhttp3:okhttp:3.2.0'
+    compile 'com.google.code.gson:gson:2.2.4'
 }
