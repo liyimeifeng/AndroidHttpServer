@@ -1,23 +1,14 @@
-package org.join.ws;
+package com.socket.org.join.ws;
 
 import java.io.IOException;
 
-import net.asfun.jangod.lib.TagLibrary;
-import net.asfun.jangod.lib.tag.ResColorTag;
-import net.asfun.jangod.lib.tag.ResStrTag;
-import net.asfun.jangod.lib.tag.UUIDTag;
 
-import org.join.ws.Constants.Config;
-import org.join.ws.serv.TempCacheFilter;
-import org.join.ws.service.WSService;
-import org.join.ws.ui.PreferActivity;
-import org.join.ws.util.CopyUtil;
+
+import com.socket.org.join.ws.serv.TempCacheFilter;
+import com.socket.org.join.ws.util.CopyUtil;
 
 import android.app.Application;
 import android.content.Intent;
-import android.util.Log;
-
-import static android.content.ContentValues.TAG;
 
 /**
  * @brief 应用全局
@@ -79,7 +70,7 @@ public class WSApplication extends Application {
         // mCopyUtil.deleteFile(new File(Config.SERV_ROOT_DIR)); // 清理服务文件目录
         try {
             // 重新复制到SDCard，仅当文件不存在时
-            mCopyUtil.assetsCopy("ws", Config.SERV_ROOT_DIR, true);
+            mCopyUtil.assetsCopy("ws", Constants.Config.SERV_ROOT_DIR, true);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -90,9 +81,9 @@ public class WSApplication extends Application {
      */
     private void initJangod() {
         /* custom tags */
-        TagLibrary.addTag(new ResStrTag());
-        TagLibrary.addTag(new ResColorTag());
-        TagLibrary.addTag(new UUIDTag());
+//        TagLibrary.addTag(new ResStrTag());
+//        TagLibrary.addTag(new ResColorTag());
+//        TagLibrary.addTag(new UUIDTag());
         /* custom filters */
     }
 
