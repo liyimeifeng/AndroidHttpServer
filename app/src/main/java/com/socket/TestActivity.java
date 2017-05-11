@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.li.httpserver.R;
 import com.socket.manager.ClientManager;
 import com.socket.manager.DownloadManager;
 import com.socket.manager.ServerManager;

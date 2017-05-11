@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 import org.apache.commons.io.FileUtils;
 
 
-import com.socket.communication.R;
+import com.li.httpserver.R;
 import com.socket.org.join.ws.WSApplication;
 import com.socket.org.join.ws.util.CopyUtil;
 

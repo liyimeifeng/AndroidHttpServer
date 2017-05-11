@@ -4,7 +4,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 
-import com.socket.communication.R;
 import com.socket.org.join.ws.serv.WebServer;
 import com.socket.org.join.ws.ui.WebServActivity;
 

@@ -120,8 +120,8 @@ public class RequestManager {
 
 
     /**下载文件
-     * Url有两种写法，http://10.10.30.235:8080/storage/emulated/0/fade.mp3 ，采用此方式，不认Referer
-     *              http://10.10.30.235:8080/dodownload?fname=fade.mp3 ，采用此方式，要认Referer后传入的目录
+     * Url有两种写法，http://10.10.30.235:9999/storage/emulated/0/fade.mp3 ，采用此方式，不认Referer
+     *              http://10.10.30.235:9999/dodownload?fname=fade.mp3 ，采用此方式，要认Referer后传入的目录（目前已经不可用）
      *
      * @param sourFilePath
      * @param targetFileDir
