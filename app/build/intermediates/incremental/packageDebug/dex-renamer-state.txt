@@ -1,4 +1,4 @@
-#Tue Mar 21 16:59:55 CST 2017
-base.0=F\:\\AndroidWebServ-master\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main
+#Thu May 11 16:35:46 CST 2017
+base.0=F\:\\AndroidHttpServer\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main
 renamed.0=classes.dex
-file.0=F\:\\AndroidWebServ-master\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main\\classes.dex
+file.0=F\:\\AndroidHttpServer\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main\\classes.dex

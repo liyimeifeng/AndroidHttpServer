@@ -1,34 +1,218 @@
 [
     {
-        "merged": "F:\\AndroidWebServ-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_toggle_on_normal.xml",
-        "source": "F:\\AndroidWebServ-master\\app\\src\\main\\res\\drawable\\btn_toggle_on_normal.xml"
+        "merged": "F:\\AndroidHttpServer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_go_search_api_material.xml",
+        "source": "F:\\AndroidHttpServer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\drawable\\abc_ic_go_search_api_material.xml"
     },
     {
-        "merged": "F:\\AndroidWebServ-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_toggle.xml",
-        "source": "F:\\AndroidWebServ-master\\app\\src\\main\\res\\drawable\\btn_toggle.xml"
+        "merged": "F:\\AndroidHttpServer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_plus_signin_btn_text_dark.xml",
+        "source": "F:\\AndroidHttpServer\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable\\common_plus_signin_btn_text_dark.xml"
     },
     {
-        "merged": "F:\\AndroidWebServ-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\folder_parent.png",
-        "source": "F:\\AndroidWebServ-master\\app\\src\\main\\res\\drawable\\folder_parent.png"
+        "merged": "F:\\AndroidHttpServer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_switch_thumb_material.xml",
+        "source": "F:\\AndroidHttpServer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\drawable\\abc_switch_thumb_material.xml"
     },
     {
-        "merged": "F:\\AndroidWebServ-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_toggle_off_normal.xml",
-        "source": "F:\\AndroidWebServ-master\\app\\src\\main\\res\\drawable\\btn_toggle_off_normal.xml"
+        "merged": "F:\\AndroidHttpServer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_plus_signin_btn_icon_dark.xml",
+        "source": "F:\\AndroidHttpServer\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable\\common_plus_signin_btn_icon_dark.xml"
     },
     {
-        "merged": "F:\\AndroidWebServ-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\file_def.png",
-        "source": "F:\\AndroidWebServ-master\\app\\src\\main\\res\\drawable\\file_def.png"
+        "merged": "F:\\AndroidHttpServer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_toggle_on_pressed.xml",
+        "source": "F:\\AndroidHttpServer\\app\\src\\main\\res\\drawable\\btn_toggle_on_pressed.xml"
     },
     {
-        "merged": "F:\\AndroidWebServ-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_toggle_on_pressed.xml",
-        "source": "F:\\AndroidWebServ-master\\app\\src\\main\\res\\drawable\\btn_toggle_on_pressed.xml"
+        "merged": "F:\\AndroidHttpServer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_textfield_search_material.xml",
+        "source": "F:\\AndroidHttpServer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\drawable\\abc_textfield_search_material.xml"
     },
     {
-        "merged": "F:\\AndroidWebServ-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_toggle_off_pressed.xml",
-        "source": "F:\\AndroidWebServ-master\\app\\src\\main\\res\\drawable\\btn_toggle_off_pressed.xml"
+        "merged": "F:\\AndroidHttpServer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_bg_low.xml",
+        "source": "F:\\AndroidHttpServer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\drawable\\notification_bg_low.xml"
     },
     {
-        "merged": "F:\\AndroidWebServ-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\folder_def.png",
-        "source": "F:\\AndroidWebServ-master\\app\\src\\main\\res\\drawable\\folder_def.png"
+        "merged": "F:\\AndroidHttpServer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_colored_material.xml",
+        "source": "F:\\AndroidHttpServer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\drawable\\abc_btn_colored_material.xml"
+    },
+    {
+        "merged": "F:\\AndroidHttpServer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_toggle.xml",
+        "source": "F:\\AndroidHttpServer\\app\\src\\main\\res\\drawable\\btn_toggle.xml"
+    },
+    {
+        "merged": "F:\\AndroidHttpServer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_seekbar_tick_mark_material.xml",
+        "source": "F:\\AndroidHttpServer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\drawable\\abc_seekbar_tick_mark_material.xml"
+    },
+    {
+        "merged": "F:\\AndroidHttpServer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_default_mtrl_shape.xml",
+        "source": "F:\\AndroidHttpServer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\drawable\\abc_btn_default_mtrl_shape.xml"
+    },
+    {
+        "merged": "F:\\AndroidHttpServer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_clear_material.xml",
+        "source": "F:\\AndroidHttpServer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\drawable\\abc_ic_clear_material.xml"
+    },
+    {
+        "merged": "F:\\AndroidHttpServer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_toggle_off_normal.xml",
+        "source": "F:\\AndroidHttpServer\\app\\src\\main\\res\\drawable\\btn_toggle_off_normal.xml"
+    },
+    {
+        "merged": "F:\\AndroidHttpServer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\folder_def.png",
+        "source": "F:\\AndroidHttpServer\\app\\src\\main\\res\\drawable\\folder_def.png"
+    },
+    {
+        "merged": "F:\\AndroidHttpServer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_icon_dark.xml",
+        "source": "F:\\AndroidHttpServer\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable\\common_google_signin_btn_icon_dark.xml"
+    },
+    {
+        "merged": "F:\\AndroidHttpServer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_small_material.xml",
+        "source": "F:\\AndroidHttpServer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\drawable\\abc_ratingbar_small_material.xml"
+    },
+    {
+        "merged": "F:\\AndroidHttpServer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_seekbar_track_material.xml",
+        "source": "F:\\AndroidHttpServer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\drawable\\abc_seekbar_track_material.xml"
+    },
+    {
+        "merged": "F:\\AndroidHttpServer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_radio_material.xml",
+        "source": "F:\\AndroidHttpServer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\drawable\\abc_btn_radio_material.xml"
+    },
+    {
+        "merged": "F:\\AndroidHttpServer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_background_transition_holo_light.xml",
+        "source": "F:\\AndroidHttpServer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\drawable\\abc_list_selector_background_transition_holo_light.xml"
+    },
+    {
+        "merged": "F:\\AndroidHttpServer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_toggle_off_pressed.xml",
+        "source": "F:\\AndroidHttpServer\\app\\src\\main\\res\\drawable\\btn_toggle_off_pressed.xml"
+    },
+    {
+        "merged": "F:\\AndroidHttpServer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_material.xml",
+        "source": "F:\\AndroidHttpServer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\drawable\\abc_ratingbar_material.xml"
+    },
+    {
+        "merged": "F:\\AndroidHttpServer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_indicator_material.xml",
+        "source": "F:\\AndroidHttpServer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\drawable\\abc_ratingbar_indicator_material.xml"
+    },
+    {
+        "merged": "F:\\AndroidHttpServer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_spinner_textfield_background_material.xml",
+        "source": "F:\\AndroidHttpServer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\drawable\\abc_spinner_textfield_background_material.xml"
+    },
+    {
+        "merged": "F:\\AndroidHttpServer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\btn_toggle_on_normal.xml",
+        "source": "F:\\AndroidHttpServer\\app\\src\\main\\res\\drawable\\btn_toggle_on_normal.xml"
+    },
+    {
+        "merged": "F:\\AndroidHttpServer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_borderless_material.xml",
+        "source": "F:\\AndroidHttpServer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\drawable\\abc_btn_borderless_material.xml"
+    },
+    {
+        "merged": "F:\\AndroidHttpServer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\file_def.png",
+        "source": "F:\\AndroidHttpServer\\app\\src\\main\\res\\drawable\\file_def.png"
+    },
+    {
+        "merged": "F:\\AndroidHttpServer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_text_cursor_material.xml",
+        "source": "F:\\AndroidHttpServer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\drawable\\abc_text_cursor_material.xml"
+    },
+    {
+        "merged": "F:\\AndroidHttpServer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_icon_background.xml",
+        "source": "F:\\AndroidHttpServer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\drawable\\notification_icon_background.xml"
+    },
+    {
+        "merged": "F:\\AndroidHttpServer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_tab_indicator_material.xml",
+        "source": "F:\\AndroidHttpServer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\drawable\\abc_tab_indicator_material.xml"
+    },
+    {
+        "merged": "F:\\AndroidHttpServer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_arrow_drop_right_black_24dp.xml",
+        "source": "F:\\AndroidHttpServer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\drawable\\abc_ic_arrow_drop_right_black_24dp.xml"
+    },
+    {
+        "merged": "F:\\AndroidHttpServer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_plus_signin_btn_icon_light.xml",
+        "source": "F:\\AndroidHttpServer\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable\\common_plus_signin_btn_icon_light.xml"
+    },
+    {
+        "merged": "F:\\AndroidHttpServer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_item_background_holo_light.xml",
+        "source": "F:\\AndroidHttpServer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\drawable\\abc_item_background_holo_light.xml"
+    },
+    {
+        "merged": "F:\\AndroidHttpServer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_background_transition_holo_dark.xml",
+        "source": "F:\\AndroidHttpServer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\drawable\\abc_list_selector_background_transition_holo_dark.xml"
+    },
+    {
+        "merged": "F:\\AndroidHttpServer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_tile_bg.xml",
+        "source": "F:\\AndroidHttpServer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\drawable\\notification_tile_bg.xml"
+    },
+    {
+        "merged": "F:\\AndroidHttpServer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_menu_overflow_material.xml",
+        "source": "F:\\AndroidHttpServer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\drawable\\abc_ic_menu_overflow_material.xml"
+    },
+    {
+        "merged": "F:\\AndroidHttpServer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_search_api_material.xml",
+        "source": "F:\\AndroidHttpServer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\drawable\\abc_ic_search_api_material.xml"
+    },
+    {
+        "merged": "F:\\AndroidHttpServer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_voice_search_api_material.xml",
+        "source": "F:\\AndroidHttpServer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\drawable\\abc_ic_voice_search_api_material.xml"
+    },
+    {
+        "merged": "F:\\AndroidHttpServer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_icon_light.xml",
+        "source": "F:\\AndroidHttpServer\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable\\common_google_signin_btn_icon_light.xml"
+    },
+    {
+        "merged": "F:\\AndroidHttpServer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_check_material.xml",
+        "source": "F:\\AndroidHttpServer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\drawable\\abc_btn_check_material.xml"
+    },
+    {
+        "merged": "F:\\AndroidHttpServer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_plus_signin_btn_text_light.xml",
+        "source": "F:\\AndroidHttpServer\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable\\common_plus_signin_btn_text_light.xml"
+    },
+    {
+        "merged": "F:\\AndroidHttpServer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_edit_text_material.xml",
+        "source": "F:\\AndroidHttpServer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\drawable\\abc_edit_text_material.xml"
+    },
+    {
+        "merged": "F:\\AndroidHttpServer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_text_light.xml",
+        "source": "F:\\AndroidHttpServer\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable\\common_google_signin_btn_text_light.xml"
+    },
+    {
+        "merged": "F:\\AndroidHttpServer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_seekbar_thumb_material.xml",
+        "source": "F:\\AndroidHttpServer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\drawable\\abc_seekbar_thumb_material.xml"
+    },
+    {
+        "merged": "F:\\AndroidHttpServer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_ab_back_material.xml",
+        "source": "F:\\AndroidHttpServer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\drawable\\abc_ic_ab_back_material.xml"
+    },
+    {
+        "merged": "F:\\AndroidHttpServer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_bg.xml",
+        "source": "F:\\AndroidHttpServer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\drawable\\notification_bg.xml"
+    },
+    {
+        "merged": "F:\\AndroidHttpServer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_holo_dark.xml",
+        "source": "F:\\AndroidHttpServer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\drawable\\abc_list_selector_holo_dark.xml"
+    },
+    {
+        "merged": "F:\\AndroidHttpServer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_vector_test.xml",
+        "source": "F:\\AndroidHttpServer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\drawable\\abc_vector_test.xml"
+    },
+    {
+        "merged": "F:\\AndroidHttpServer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_cab_background_internal_bg.xml",
+        "source": "F:\\AndroidHttpServer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\drawable\\abc_cab_background_internal_bg.xml"
+    },
+    {
+        "merged": "F:\\AndroidHttpServer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_item_background_holo_dark.xml",
+        "source": "F:\\AndroidHttpServer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\drawable\\abc_item_background_holo_dark.xml"
+    },
+    {
+        "merged": "F:\\AndroidHttpServer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_cab_background_top_material.xml",
+        "source": "F:\\AndroidHttpServer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\drawable\\abc_cab_background_top_material.xml"
+    },
+    {
+        "merged": "F:\\AndroidHttpServer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_dialog_material_background.xml",
+        "source": "F:\\AndroidHttpServer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\drawable\\abc_dialog_material_background.xml"
+    },
+    {
+        "merged": "F:\\AndroidHttpServer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\folder_parent.png",
+        "source": "F:\\AndroidHttpServer\\app\\src\\main\\res\\drawable\\folder_parent.png"
+    },
+    {
+        "merged": "F:\\AndroidHttpServer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_text_dark.xml",
+        "source": "F:\\AndroidHttpServer\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable\\common_google_signin_btn_text_dark.xml"
+    },
+    {
+        "merged": "F:\\AndroidHttpServer\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_holo_light.xml",
+        "source": "F:\\AndroidHttpServer\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.2.0\\res\\drawable\\abc_list_selector_holo_light.xml"
     }
 ]
